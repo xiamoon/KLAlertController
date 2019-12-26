@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'KLAlertController_Example' do
+  pod 'KLAlertController', :path => '../'
+
+  target 'KLAlertController_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
