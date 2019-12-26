@@ -1,0 +1,6 @@
+framework module KLAlertController {
+  umbrella header "KLAlertController-umbrella.h"
+
+  export *
+  module * { export * }
+}

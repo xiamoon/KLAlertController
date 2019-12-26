@@ -22,7 +22,7 @@ pod 'KLAlertController'
 
 ## Author
 
-xiamoon, qian.li@gailvlun.cn
+kaleo, liqian_tvd@163.com
 
 ## License
 

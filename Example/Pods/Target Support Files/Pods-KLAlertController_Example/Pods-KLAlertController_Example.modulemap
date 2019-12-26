@@ -1,0 +1,6 @@
+framework module Pods_KLAlertController_Example {
+  umbrella header "Pods-KLAlertController_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
