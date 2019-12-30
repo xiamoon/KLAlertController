@@ -1,21 +1,8 @@
-#
-# Be sure to run `pod lib lint KLAlertController.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
 
 Pod::Spec.new do |s|
   s.name             = 'KLAlertController'
   s.version          = '0.1.0'
   s.summary          = '一款api跟系统UIAlertController一样的弹出视图，但是提供更多定制化的接口'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
                        一、支持iPhone和iPad，支持iOS6以上机型。
@@ -28,21 +15,50 @@ Pod::Spec.new do |s|
                        DESC
 
   s.homepage         = 'https://github.com/xiamoon/KLAlertController'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'kaleo' => 'liqian_tvd@163.com' }
-  s.source           = { :git => 'https://github.com/xiamoon/KLAlertController.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/xiamoon/KLAlertController.git', :tag => s.version.to_s}
+  s.requires_arc = true
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'KLAlertController/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'KLAlertController' => ['KLAlertController/Assets/*.png']
-  # }
+  s.dependency 'Masonry'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-   s.dependency 'Masonry'
+  s.source_files = 'KLAlertController/Classes/**/*'
+#  s.public_header_files = 'KLAlertController/*.h'
+  
+  s.subspec 'Other' do |other|
+    other.source_files = 'KLAlertController/Classes/Other/*.{h,m}'
+#    ss.public_header_files = 'KLAlertController/Other/*.h'
+  end
+
+  s.subspec 'Animation' do |animation|
+    animation.source_files = 'KLAlertController/Classes/Animation/*.{h,m}'
+#    ss.public_header_files = 'KLAlertController/Animation/*.h'
+  end
+
+  s.subspec 'Model' do |model|
+    model.source_files = 'KLAlertController/Classes/Model/*.{h,m}'
+#    ss.public_header_files = 'KLAlertController/Model/KLAlertAction.h'
+  end
+
+  s.subspec 'View' do |view|
+    view.source_files = 'KLAlertController/Classes/View/**/*.{h,m}'
+#    ss.public_header_files = 'KLAlertController/View/*.h'
+
+    view.subspec 'Alert' do |alert|
+      alert.dependency 'KLAlertController/Classes/Model'
+      alert.dependency 'KLAlertController/Classes/Other'
+      
+      alert.source_files = 'KLAlertController/Classes/View/Alert/*.{h,m}'
+#      sss.public_header_files = 'KLAlertController/View/Alert/*.h'
+    end
+
+    view.subspec 'Sheet' do |sheet|
+      sheet.dependency 'KLAlertController/Classes/View/Alert'
+      
+      sheet.source_files = 'KLAlertController/Classes/View/Sheet/*.{h,m}'
+#      sss.public_header_files = 'KLAlertController/View/Sheet/*.h'
+    end
+  end
 end

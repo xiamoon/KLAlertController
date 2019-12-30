@@ -1,15 +1,22 @@
 PODS:
-  - KLAlertController (0.1.0)
+  - KLAlertController (0.1.0):
+    - Masonry
+  - Masonry (1.1.0)
 
 DEPENDENCIES:
   - KLAlertController (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Masonry
 
 EXTERNAL SOURCES:
   KLAlertController:
     :path: "../"
 
 SPEC CHECKSUMS:
-  KLAlertController: bfd86944757a7587345295204975c07c17f0069f
+  KLAlertController: d075c383a2699b75328fd52936d3fa7151d3de18
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: d6706a6a076b5894d422861b2fd82d311e2583f5
 
