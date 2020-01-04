@@ -7,78 +7,78 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03CD0DD3189BFA8240E4986DF526F69F /* KLAlertCustomizeHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3384091A18E6CD655B30591731FDC52B /* KLAlertCustomizeHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		06AEDF935E93824ACC4632823294140A /* KLSheetHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4B9381ED62B30F4423BBC5DE6AD3FD9 /* KLSheetHeaderView.m */; };
 		07C27889957440BA854DC9A5C4CA9884 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28147EF640D73DD5BE8B797CFD199606 /* Foundation.framework */; };
-		0FC6A1F66C2355B210DE69B2E6840108 /* KLAlertSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = D402FC73FA6F0845EF5A7F5A82B03918 /* KLAlertSingleton.m */; };
+		0A27BBF28EF07338A45BD240F87B7AF9 /* KLAlertBaseAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = EAF7A6BF5C98387632FF959E3E57E448 /* KLAlertBaseAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A6CEEBA1FD8756AC91D6A0B5CA9B596 /* KLAlertSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F20D8F6802A6218D0648C59EA0302A4F /* KLAlertSingleton.m */; };
+		10336FBF6FFA9D8D2EBDF825265021C1 /* KLAlertActionGroupView.h in Headers */ = {isa = PBXBuildFile; fileRef = B01B63EF82D0DDEADEB3C21C8223FB29 /* KLAlertActionGroupView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		16D45F12CDE421F5903DCFB625AC6157 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28147EF640D73DD5BE8B797CFD199606 /* Foundation.framework */; };
 		19AA1B48B5D8C26C915752BC5D878995 /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 896A4BCB5B3DBC78E1CF6EBF5AC2862F /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DCB7A0F44CD5F04A6ABB22B6735E52F /* KLAlertAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = BBCA7874E96E13263A52A5866E8FA6D7 /* KLAlertAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FACDCC8FD05B226531EEDBBF43E30DB /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = A17EAC4713F6B85A6124DB11F111B072 /* MASViewConstraint.m */; };
+		23C27F58925718F00D40A9248135AF3B /* KLSheetHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = F3A9AA3C700D045C85C00322232E02C0 /* KLSheetHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		25464F6FBEC56C0E38BA4701B6034034 /* KLAlertPresentingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F14FF373DFE24A09CCC329725EE648 /* KLAlertPresentingViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		26EBED6F16446FE3BDEF4122C02BC196 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B28864E3F11E1DDE7AEF55AFFD8B0FE /* Masonry.framework */; };
-		274D421C27F622090B52300DE3DA0A03 /* KLSheetContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77FD851C917B6F88D5C1D9A9701DF896 /* KLSheetContentView.m */; };
-		28DC74F4F4727786045913BCAAB62C86 /* KLAlertContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F439E4FD02CC243AE490F83555B3FB /* KLAlertContentView.m */; };
 		296F6582839D12A7A36641CA087E6753 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 071ABA9DA4A53122DD0382E7C7F6CBEB /* ViewController+MASAdditions.m */; };
-		325E33017CA518DE157B176561EF9CA7 /* KLSheetContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E97AE9882086BC321B7DC65B99CC0E3 /* KLSheetContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		35CD4E8A2B16FA4318256323AB17C0AF /* KLAlertHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4DE2924A6A800FC10AB725B105F7DC /* KLAlertHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37EFD922564E01800E315B5411F08983 /* KLAlertPresentingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59754840E3337FBFD7AEFA8C33A81E1 /* KLAlertPresentingViewController.m */; };
+		354BF61E57064CC02FF8F723EE3B9A2F /* KLAlertAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = FED7812D8094928E63A816696FCE9888 /* KLAlertAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		392AC10E55795C3642E8470753299C3C /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = ACB7B80D58CFA003C25B538A405A341D /* MASViewAttribute.m */; };
-		3BD2399FECEDC47809F499E445ECC910 /* KLAlertCustomizeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 307C93908E760745FB70248A70C39C20 /* KLAlertCustomizeHeaderView.m */; };
+		39758F90670F5E7A1FE64B8364D58E6A /* KLAlertAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A599F358419F639AE93677B8BC02DAC /* KLAlertAction.m */; };
 		3C226A65A1089F47C198B88E6CAC51E0 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 62890C896C598E9650B511A4A9BA249A /* NSLayoutConstraint+MASDebugAdditions.m */; };
-		409A609E26734172C1FC293CDD26A842 /* KLAlertContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D96192BE54AD92F881D1DA73D044B90 /* KLAlertContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3FE794D47217A017EDA87220837A6125 /* KLAlertController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1BA0021F7AB6BE692C8633A5ED6CC8CB /* KLAlertController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		444BB054A7FFB4AFEA476E6C58D3D9D1 /* KLAlertActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F048A79BCD64245030145CFF1049A1 /* KLAlertActionButton.m */; };
 		445CB14AC1143C6C7A4A957A4A123E31 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E780607D798BC01DDE3031621C51501 /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4625F983A94B26CA47F7782CE7E7F77A /* KLAlertBaseAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A424715C6D15DF4712F8BE42C1B9D03B /* KLAlertBaseAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		46A817C772E922F1D1315273AE6FCE95 /* NSParagraphStyle+Shortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = 9145020018FFAFA66E52A8A202CCD5B4 /* NSParagraphStyle+Shortcut.m */; };
+		49A76BC5E6A4B0D4367A341E6A7DCF35 /* KLAlertContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = A9EA0B836FD7736D010D16A240393926 /* KLAlertContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4DFA2716D555FA3BDD2EB87520FFF667 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 36D9333B00F315696855ADE85C3E6D15 /* MASConstraintMaker.m */; };
 		514493D639EA939A3674B3174485908F /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 115A4EA8F789344C790FEA5CDC507FB7 /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		54E52C2123B9AD9E0064E43F /* KLPopUpViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 54E52C1F23B9AD9E0064E43F /* KLPopUpViewController.h */; };
-		54E52C2223B9AD9E0064E43F /* KLPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54E52C2023B9AD9E0064E43F /* KLPopUpViewController.m */; };
-		60ACF15AF28B745A3631C25745B544BF /* KLAlertActionButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 5656A9C655E19494233DF9FA9CC9B4B4 /* KLAlertActionButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		65C6ABB2963CB409425C9BB7F9931878 /* KLAlertHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00120C047799A76EB8346C0D51195A03 /* KLAlertHeaderView.m */; };
+		57505C6408F04ADDDACB08F420A25F54 /* KLSheetHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 529AE0B0153AAB34F4554C22DE45CAC2 /* KLSheetHeaderView.m */; };
+		5F492002FF2135B972CAF9529A991C63 /* KLAlertHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A64A35B806454C0CA85C11FBFADBDA /* KLAlertHeaderView.m */; };
+		615D59D912E8955CDBD7926EB7787813 /* KLActionSheetAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 96BF8566B213592E7A49BD148E1A68DE /* KLActionSheetAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65C1CFC38FF847543321400F1AF0D625 /* KLAlertController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4842511F88BE1A079DED71A85E1B883A /* KLAlertController-dummy.m */; };
 		69C49B6EDA22C9441B006E8708F5515C /* Masonry-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D4CA7B92265A15B80B1666634FF46C0 /* Masonry-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		724751DE91B2BD6B728E196822CF30F8 /* KLSheetActionGroupView.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F65D04C02AA8939915DB6A0AC01153 /* KLSheetActionGroupView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		75477BE57887C7490C55591FDA52BA32 /* KLAlertPresentingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 23E70CCB0E772FD76E7F39409D768F83 /* KLAlertPresentingViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7866547FBF5570E2E95CBD0FADB09D2F /* KLAlertActionGroupView.h in Headers */ = {isa = PBXBuildFile; fileRef = A1180C1B8F152CC36214348B7C8E3AD5 /* KLAlertActionGroupView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7B6CC61A36E04419BCBE14996C30E8A4 /* KLAlertAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 975BD89DDAA254B6C790191584622531 /* KLAlertAnimation.m */; };
-		80CC20C4BDA59BD120FF567433FF96AE /* KLSheetActionGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1409155B34109FFDDF3C90BCC5981321 /* KLSheetActionGroupView.m */; };
-		8496FB577C6D9857311E844C1C07F66C /* KLAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = F3AE5F653CD555A043473807D0CDFC25 /* KLAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E6661CB3D91498FA299CC81EB131F6B /* KLAlertControllerConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = C6E211B76BC7EE208006293DA49EB754 /* KLAlertControllerConstant.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6E964274CA3F952918FF7231E01F84F3 /* KLPopUpViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DF455F160C01490B75648ED11DFA1D /* KLPopUpViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		782518137C24B4F177F72F3E7AA6EB2D /* KLAlertAction.h in Headers */ = {isa = PBXBuildFile; fileRef = DB41395A279D05F153E3B3209D1BB0BB /* KLAlertAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7D8AF1491B198FFD02BF304C9688EE0E /* KLAlertSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 57B9A615500264F4DDD03D9BC0925AA8 /* KLAlertSingleton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		808611591C9D5DBCDE216EDE8D4FAD37 /* KLAlertAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C5C657431FF384CFDE1F52F2255B3B /* KLAlertAnimation.m */; };
+		83CFD37529622B05D727F54FB9CD405A /* KLAlertCustomizeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 971220A8E081940836C430F3076D860C /* KLAlertCustomizeHeaderView.m */; };
 		8C421C77EF6DFCDB9DCDCD845845027C /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = B377289AFAE7DF9945B981F14B4AF95C /* MASCompositeConstraint.m */; };
 		8D58F1B608E807563434206D4AE6299B /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F1BF5683BFFCF57BA0C385B36CC0BE2 /* MASConstraint.m */; };
+		90D6F28371E0B864CF364F1E8A310A82 /* KLActionSheetAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 90ECCFA2DB0407295141396650A47FAA /* KLActionSheetAnimation.m */; };
+		9158A74917227FDD7EF6A53E694E672E /* KLAlertActionButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B38EA241F308D5D871C2A823E301EAF /* KLAlertActionButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92A6E1EC45621806243BA2BFE84E8B02 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28147EF640D73DD5BE8B797CFD199606 /* Foundation.framework */; };
+		96E68D62582BC151D01757F6B22A7F1B /* KLPopUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8349BEE177633C1FA9578D01FB20EF2 /* KLPopUpViewController.m */; };
 		96FA325FB8A38F50E2F3C978796F2144 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 130F3B92BAB28630295F57E8AAC12EA1 /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9ACA4333F868C05A2A84C35644362158 /* KLAlertSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = EDB6116DBA49E77F690598E58A531D65 /* KLAlertSingleton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9BE4B64A7233439BB70225E0BBD30E67 /* KLAlertActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F0F9D5590FF2C9CBC79B2346AF759E /* KLAlertActionButton.m */; };
 		9DE12BA0FA3F93E935A8B17A7D67C3D9 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FADB5EBFADA2A419371CF5E6C927F1E /* MASLayoutConstraint.m */; };
-		9E402748F6FF64019ED6468BA102C120 /* KLAlertController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A479A67EC5877C372C962CF5031B87CA /* KLAlertController-dummy.m */; };
-		A53E00C24040E79B34A7909707F3022B /* KLSheetHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = B8413A47B20D1B216473C55118FC9845 /* KLSheetHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A5C13433E03F045E66E6E188ED9E3EF8 /* KLAlertActionGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B689DD112DB25BC47171CABB2539320 /* KLAlertActionGroupView.m */; };
-		A680772ADC05DE7D829364E225A46588 /* NSParagraphStyle+Shortcut.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B4855E94A3C80E8DD7BA8D62C6C904B /* NSParagraphStyle+Shortcut.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AAD58C471A739B21D1146E83B1348CBA /* KLActionSheetAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F274C32B1D25BEA9B9A2112317E835D /* KLActionSheetAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0EDB66057AE0DC639902449087BE120 /* KLSheetActionGroupView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7072CF583D17D6DD9537DC52F2619D1C /* KLSheetActionGroupView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A28D8A5FA3F72B2EC358148A8B4D8CE3 /* KLSheetContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = A2D408C489B65A913ACC739B70F6BE5E /* KLSheetContentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA06E527E28248A696AD1CDDD9E43F53 /* NSParagraphStyle+Shortcut.h in Headers */ = {isa = PBXBuildFile; fileRef = 18F1D9D63584B1962D880BA16B0C9E1F /* NSParagraphStyle+Shortcut.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADCD1A5D7AC456BF0B2661AB7882E73 /* NSParagraphStyle+Shortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = 241E8CF061D3D9CADE64F5BBE9F14462 /* NSParagraphStyle+Shortcut.m */; };
 		AC955B10B134A388808DE7C9872BE253 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E476E5DC364B11085C84F8770A12FD3B /* Masonry-dummy.m */; };
-		B1FC782207E4CF8BA44DC4B61F0B4F21 /* KLAlertAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D5C7A345E0CCE0049C3FF1690AA38EC3 /* KLAlertAction.m */; };
+		AC9EB8251235E0B2EFAB1B2F9CF85FB7 /* KLSheetContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA91BD6899BEEAAF6622B2CC94E9D50 /* KLSheetContentView.m */; };
 		B3422C1A5C0783E338D6B4CFFE748AF0 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = F20A7188ABF123273A3C22C4340688AC /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5269064F1C59F3214D2DB71E4CF5D51 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F5718E89E4E5165AA49B980D89CBCF8 /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB99C94FB966BE6B78DEFFC04D9E6C3E /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BB2E40FA7314FFFF244B2FD839A658 /* NSArray+MASAdditions.m */; };
-		BC765AA3808D1F5DB7E191F7971F81D7 /* KLAlertAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E1061DF114CC29747329360A315A6B5 /* KLAlertAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BC50D8A8D01639C5536DAF21DEAEE8AD /* KLAlertCustomizeHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EAD981625118AC5D72E987806B0701F /* KLAlertCustomizeHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD63F9D1D6F0373EDC429338BAC87EA3 /* Pods-KLAlertController_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A691FD0ECD58D856A06C5F6BDA9B5220 /* Pods-KLAlertController_Tests-dummy.m */; };
-		BE3768AE91A51FE8D729886EA0D30E71 /* KLAlertController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7BB6D70CCBAAF2B4D47867D115D8D4 /* KLAlertController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C45CDA205992468F30BAF59A102F3EA5 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = F05C6EDBC8E4591F89BD9F1E17FBFC97 /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD589BEC50A585CCB392A0BE20A53683 /* KLAlertPresentingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7B9D3FA440845B8E4A9686A5F509D1 /* KLAlertPresentingViewController.m */; };
 		CEBEFF98C7747BB15DCA9DC26614873C /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C783239D12541FA278CBEBA15780CE4 /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D417509696859E6D3BF5053FB84CB8D0 /* KLAlertContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 715D4ABBD64EE45994F2E5C81818C55B /* KLAlertContentView.m */; };
 		D9C2E549DBF82E0212DE54B84C58CFD1 /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = B47E0CCE07C313DF7CE5A32C063379DF /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DAFFCC6093AD3339FDEC5053502DD2FD /* Pods-KLAlertController_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4A64CDFFB979EB7723F9F768DE6A000 /* Pods-KLAlertController_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE09DB9B839206D50CA46D408043CC61 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 86DFFE3C8ABE515058DCF105EB608F37 /* MASUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E18CB606A6FCB1F6152FD76DE224D350 /* KLActionSheetAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 47810579FD4FAE16AC8EB47DE7D9E055 /* KLActionSheetAnimation.m */; };
 		E3B575479C025605A4F334EC68C41E7F /* Pods-KLAlertController_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B53BBDA9F61E3D38A4916EF3E268E0CC /* Pods-KLAlertController_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E62D464D9E8CBD05135729A92062A426 /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BCF93F338546FCB058B68A5B6F26B32 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E6805EC669677BA12737833D4FD5E1F6 /* KLAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341EB52D465605BF6B18F6BDDF37F4CB /* KLAlertController.m */; };
-		E84AE94898220F6ECE6C56171BD0EA3A /* KLAlertControllerConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 610BBB5AAC9226EE608D29ACF6DE834E /* KLAlertControllerConstant.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ED3B75F44C7943B4FC2791B271A11707 /* Pods-KLAlertController_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 595C18F03B6CCA98766FD12BACB6C22C /* Pods-KLAlertController_Example-dummy.m */; };
+		ED61CE00DF11932B63A4CBB6F7C38B9B /* KLAlertBaseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 457E3BDC78F28758E45A9577B77D9473 /* KLAlertBaseAnimation.m */; };
 		EEC2081000D9C86B231C4C160B1067BE /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7A0F064F168E6660B03C9639A19329 /* View+MASAdditions.m */; };
+		F329D10A72990636C8F06CAA0F347A52 /* KLAlertHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = E69723B2C0F41C3AD8EB4C2B8855DEC9 /* KLAlertHeaderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F36447E231472230427417230D6E0975 /* KLAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44145BF02070C502485F8228BA508ECE /* KLAlertController.m */; };
 		F68E77497366F00370FF44F8B3B85144 /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E5709CED54C3B8DC4B50B19520F6771 /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F6DCC73E43C86F3C752511295D65B76B /* KLAlertBaseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = EA1849840A1D197D24B0921E86923536 /* KLAlertBaseAnimation.m */; };
 		F7E0DE3C245CC5755A839ADB586B97A8 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CD1AD2192C246BE568B6CFBA7EB9C68 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F86C6171D62BA5E5A1AF7BA9653E6E2A /* KLAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = DBACBDC3C8072893FE9E7290B1E03B08 /* KLAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8B7212E080943DDDE5671021D0800A9 /* KLAlertActionGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 339A8595792E39619E78BB5C38788960 /* KLAlertActionGroupView.m */; };
 		F8FC491A579B5BB17AC4B76DAE59EEF3 /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D100F47F5FECCA555C616F7D93D7CB4B /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB5C10FA3690B655546949D2925E4458 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28147EF640D73DD5BE8B797CFD199606 /* Foundation.framework */; };
+		FB9731C51267EFF5E21D9E01BEDF7ADC /* KLSheetActionGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 062136C0E1DCF73D5E42FB5547FA82B1 /* KLSheetActionGroupView.m */; };
 		FC1C8033396785E8269CF8A3AE531BE7 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = DF48D82622C6D1FFAC5752C7BB004472 /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FC98D774868B980BA2C8788CA3BAF29A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF909907D9794E4C781DAC1693A7018 /* UIKit.framework */; };
 /* End PBXBuildFile section */
@@ -115,106 +115,106 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00120C047799A76EB8346C0D51195A03 /* KLAlertHeaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertHeaderView.m; sourceTree = "<group>"; };
 		002BF3DDD89C177475702379D618BDA2 /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
 		009E0C30F58090DA170FD094C57674E5 /* Pods-KLAlertController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KLAlertController_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		0179116FE4CEA5ECB48F8D5FBF39A388 /* KLAlertController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KLAlertController.xcconfig; sourceTree = "<group>"; };
 		025EB543E67AF6218FBFEFBEC406E598 /* Masonry-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Masonry-Info.plist"; sourceTree = "<group>"; };
+		062136C0E1DCF73D5E42FB5547FA82B1 /* KLSheetActionGroupView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLSheetActionGroupView.m; sourceTree = "<group>"; };
 		071ABA9DA4A53122DD0382E7C7F6CBEB /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		0E8DE4A3EF7B07F420C79AEA3DC4D815 /* Pods-KLAlertController_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KLAlertController_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		0F5718E89E4E5165AA49B980D89CBCF8 /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
 		115A4EA8F789344C790FEA5CDC507FB7 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
 		130F3B92BAB28630295F57E8AAC12EA1 /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
-		1409155B34109FFDDF3C90BCC5981321 /* KLSheetActionGroupView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLSheetActionGroupView.m; sourceTree = "<group>"; };
 		14295003779B2A58DBA5E8FF6FA6757A /* Pods-KLAlertController_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KLAlertController_Tests-Info.plist"; sourceTree = "<group>"; };
-		1A4DE2924A6A800FC10AB725B105F7DC /* KLAlertHeaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertHeaderView.h; sourceTree = "<group>"; };
-		1D96192BE54AD92F881D1DA73D044B90 /* KLAlertContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertContentView.h; sourceTree = "<group>"; };
+		18F1D9D63584B1962D880BA16B0C9E1F /* NSParagraphStyle+Shortcut.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSParagraphStyle+Shortcut.h"; sourceTree = "<group>"; };
+		1B38EA241F308D5D871C2A823E301EAF /* KLAlertActionButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertActionButton.h; sourceTree = "<group>"; };
+		1BA0021F7AB6BE692C8633A5ED6CC8CB /* KLAlertController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KLAlertController-umbrella.h"; sourceTree = "<group>"; };
+		1D7B9D3FA440845B8E4A9686A5F509D1 /* KLAlertPresentingViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertPresentingViewController.m; sourceTree = "<group>"; };
+		1DCFDCCCA21EF2BDC4659060DD8F6696 /* KLAlertController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KLAlertController-Info.plist"; sourceTree = "<group>"; };
 		1E780607D798BC01DDE3031621C51501 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		1F1BF5683BFFCF57BA0C385B36CC0BE2 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
-		1FFED36A657123030ABB700256D73F15 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2173B652FB782B08A80754EBA98C3884 /* KLAlertController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KLAlertController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		23E70CCB0E772FD76E7F39409D768F83 /* KLAlertPresentingViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertPresentingViewController.h; sourceTree = "<group>"; };
+		1FFED36A657123030ABB700256D73F15 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Masonry.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2173B652FB782B08A80754EBA98C3884 /* KLAlertController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KLAlertController.framework; path = KLAlertController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		241E8CF061D3D9CADE64F5BBE9F14462 /* NSParagraphStyle+Shortcut.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSParagraphStyle+Shortcut.m"; sourceTree = "<group>"; };
 		28147EF640D73DD5BE8B797CFD199606 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		28EE81C15EBDE376F90027704980982E /* Pods-KLAlertController_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KLAlertController_Tests.modulemap"; sourceTree = "<group>"; };
-		307C93908E760745FB70248A70C39C20 /* KLAlertCustomizeHeaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertCustomizeHeaderView.m; sourceTree = "<group>"; };
-		3384091A18E6CD655B30591731FDC52B /* KLAlertCustomizeHeaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertCustomizeHeaderView.h; sourceTree = "<group>"; };
-		341EB52D465605BF6B18F6BDDF37F4CB /* KLAlertController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KLAlertController.m; path = KLAlertController/Classes/KLAlertController.m; sourceTree = "<group>"; };
+		3207AB53F7148B967D2EC4278135FFA6 /* KLAlertController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KLAlertController.modulemap; sourceTree = "<group>"; };
+		339A8595792E39619E78BB5C38788960 /* KLAlertActionGroupView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertActionGroupView.m; sourceTree = "<group>"; };
+		33F048A79BCD64245030145CFF1049A1 /* KLAlertActionButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertActionButton.m; sourceTree = "<group>"; };
+		34A64A35B806454C0CA85C11FBFADBDA /* KLAlertHeaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertHeaderView.m; sourceTree = "<group>"; };
+		34F14FF373DFE24A09CCC329725EE648 /* KLAlertPresentingViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertPresentingViewController.h; sourceTree = "<group>"; };
 		36D9333B00F315696855ADE85C3E6D15 /* MASConstraintMaker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraintMaker.m; path = Masonry/MASConstraintMaker.m; sourceTree = "<group>"; };
-		3B689DD112DB25BC47171CABB2539320 /* KLAlertActionGroupView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertActionGroupView.m; sourceTree = "<group>"; };
+		3A599F358419F639AE93677B8BC02DAC /* KLAlertAction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertAction.m; sourceTree = "<group>"; };
 		3BCF93F338546FCB058B68A5B6F26B32 /* MASConstraintMaker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraintMaker.h; path = Masonry/MASConstraintMaker.h; sourceTree = "<group>"; };
-		3F7BB6D70CCBAAF2B4D47867D115D8D4 /* KLAlertController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KLAlertController-umbrella.h"; sourceTree = "<group>"; };
-		47810579FD4FAE16AC8EB47DE7D9E055 /* KLActionSheetAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLActionSheetAnimation.m; sourceTree = "<group>"; };
-		4B4855E94A3C80E8DD7BA8D62C6C904B /* NSParagraphStyle+Shortcut.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSParagraphStyle+Shortcut.h"; sourceTree = "<group>"; };
-		4C5938ECBD5F4D2F9549F699760886F2 /* KLAlertController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KLAlertController-prefix.pch"; sourceTree = "<group>"; };
-		4E1061DF114CC29747329360A315A6B5 /* KLAlertAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertAction.h; sourceTree = "<group>"; };
+		44145BF02070C502485F8228BA508ECE /* KLAlertController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KLAlertController.m; path = KLAlertController/Classes/KLAlertController.m; sourceTree = "<group>"; };
+		457E3BDC78F28758E45A9577B77D9473 /* KLAlertBaseAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertBaseAnimation.m; sourceTree = "<group>"; };
+		4842511F88BE1A079DED71A85E1B883A /* KLAlertController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KLAlertController-dummy.m"; sourceTree = "<group>"; };
 		4E5709CED54C3B8DC4B50B19520F6771 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
-		4F274C32B1D25BEA9B9A2112317E835D /* KLActionSheetAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLActionSheetAnimation.h; sourceTree = "<group>"; };
 		506D1C281B1B51F0C4786B57AB38964A /* Pods-KLAlertController_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KLAlertController_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		54E52C1F23B9AD9E0064E43F /* KLPopUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KLPopUpViewController.h; path = KLAlertController/Classes/KLPopUpViewController.h; sourceTree = "<group>"; };
-		54E52C2023B9AD9E0064E43F /* KLPopUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KLPopUpViewController.m; path = KLAlertController/Classes/KLPopUpViewController.m; sourceTree = "<group>"; };
-		5656A9C655E19494233DF9FA9CC9B4B4 /* KLAlertActionButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertActionButton.h; sourceTree = "<group>"; };
+		529AE0B0153AAB34F4554C22DE45CAC2 /* KLSheetHeaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLSheetHeaderView.m; sourceTree = "<group>"; };
+		57B9A615500264F4DDD03D9BC0925AA8 /* KLAlertSingleton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertSingleton.h; sourceTree = "<group>"; };
 		595C18F03B6CCA98766FD12BACB6C22C /* Pods-KLAlertController_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KLAlertController_Example-dummy.m"; sourceTree = "<group>"; };
-		5964E2C7669F1904AEC12F76141DE2D4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5FADB5EBFADA2A419371CF5E6C927F1E /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
-		610BBB5AAC9226EE608D29ACF6DE834E /* KLAlertControllerConstant.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KLAlertControllerConstant.h; path = KLAlertController/Classes/KLAlertControllerConstant.h; sourceTree = "<group>"; };
 		62890C896C598E9650B511A4A9BA249A /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		66D436D87F0855E95AEBB0C94A698EF9 /* KLAlertController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KLAlertController.modulemap; sourceTree = "<group>"; };
-		6AA75F983D7C69C8517D14C874E77400 /* Pods_KLAlertController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KLAlertController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AA75F983D7C69C8517D14C874E77400 /* Pods_KLAlertController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KLAlertController_Tests.framework; path = "Pods-KLAlertController_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B28864E3F11E1DDE7AEF55AFFD8B0FE /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E1B16355544EE317DF8AD6BCD2DDCF7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		6EAD981625118AC5D72E987806B0701F /* KLAlertCustomizeHeaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertCustomizeHeaderView.h; sourceTree = "<group>"; };
+		7072CF583D17D6DD9537DC52F2619D1C /* KLSheetActionGroupView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLSheetActionGroupView.h; sourceTree = "<group>"; };
+		715D4ABBD64EE45994F2E5C81818C55B /* KLAlertContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertContentView.m; sourceTree = "<group>"; };
 		7438D8D01BBC6D24E60B6C61FB2CE0BF /* Pods-KLAlertController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KLAlertController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		77FD851C917B6F88D5C1D9A9701DF896 /* KLSheetContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLSheetContentView.m; sourceTree = "<group>"; };
-		8193C0069C52A6805996618422A5D5B6 /* Pods_KLAlertController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KLAlertController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8193C0069C52A6805996618422A5D5B6 /* Pods_KLAlertController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_KLAlertController_Example.framework; path = "Pods-KLAlertController_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86DFFE3C8ABE515058DCF105EB608F37 /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
 		870570EFE09B8657023DC7C42C33BE4B /* Masonry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Masonry.modulemap; sourceTree = "<group>"; };
 		896A4BCB5B3DBC78E1CF6EBF5AC2862F /* View+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASAdditions.h"; path = "Masonry/View+MASAdditions.h"; sourceTree = "<group>"; };
 		8D4CA7B92265A15B80B1666634FF46C0 /* Masonry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-umbrella.h"; sourceTree = "<group>"; };
-		8E97AE9882086BC321B7DC65B99CC0E3 /* KLSheetContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLSheetContentView.h; sourceTree = "<group>"; };
-		9145020018FFAFA66E52A8A202CCD5B4 /* NSParagraphStyle+Shortcut.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSParagraphStyle+Shortcut.m"; sourceTree = "<group>"; };
-		94F439E4FD02CC243AE490F83555B3FB /* KLAlertContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertContentView.m; sourceTree = "<group>"; };
-		975BD89DDAA254B6C790191584622531 /* KLAlertAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertAnimation.m; sourceTree = "<group>"; };
+		90ECCFA2DB0407295141396650A47FAA /* KLActionSheetAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLActionSheetAnimation.m; sourceTree = "<group>"; };
+		96BF8566B213592E7A49BD148E1A68DE /* KLActionSheetAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLActionSheetAnimation.h; sourceTree = "<group>"; };
+		971220A8E081940836C430F3076D860C /* KLAlertCustomizeHeaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertCustomizeHeaderView.m; sourceTree = "<group>"; };
 		9C49ED2E7F605555B4327098CD67F1D6 /* Pods-KLAlertController_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KLAlertController_Example.modulemap"; sourceTree = "<group>"; };
 		9C783239D12541FA278CBEBA15780CE4 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		9CA91BD6899BEEAAF6622B2CC94E9D50 /* KLSheetContentView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLSheetContentView.m; sourceTree = "<group>"; };
 		9CD1AD2192C246BE568B6CFBA7EB9C68 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A1180C1B8F152CC36214348B7C8E3AD5 /* KLAlertActionGroupView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertActionGroupView.h; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A17EAC4713F6B85A6124DB11F111B072 /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
-		A2200AEBCA79273A0C72C2CA887053AE /* KLAlertController.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = KLAlertController.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A424715C6D15DF4712F8BE42C1B9D03B /* KLAlertBaseAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertBaseAnimation.h; sourceTree = "<group>"; };
-		A479A67EC5877C372C962CF5031B87CA /* KLAlertController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KLAlertController-dummy.m"; sourceTree = "<group>"; };
-		A4B9381ED62B30F4423BBC5DE6AD3FD9 /* KLSheetHeaderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLSheetHeaderView.m; sourceTree = "<group>"; };
+		A2D408C489B65A913ACC739B70F6BE5E /* KLSheetContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLSheetContentView.h; sourceTree = "<group>"; };
 		A691FD0ECD58D856A06C5F6BDA9B5220 /* Pods-KLAlertController_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KLAlertController_Tests-dummy.m"; sourceTree = "<group>"; };
+		A9EA0B836FD7736D010D16A240393926 /* KLAlertContentView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertContentView.h; sourceTree = "<group>"; };
 		ACB7B80D58CFA003C25B538A405A341D /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
+		B01B63EF82D0DDEADEB3C21C8223FB29 /* KLAlertActionGroupView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertActionGroupView.h; sourceTree = "<group>"; };
 		B377289AFAE7DF9945B981F14B4AF95C /* MASCompositeConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASCompositeConstraint.m; path = Masonry/MASCompositeConstraint.m; sourceTree = "<group>"; };
 		B47E0CCE07C313DF7CE5A32C063379DF /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
 		B53BBDA9F61E3D38A4916EF3E268E0CC /* Pods-KLAlertController_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KLAlertController_Tests-umbrella.h"; sourceTree = "<group>"; };
-		B8413A47B20D1B216473C55118FC9845 /* KLSheetHeaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLSheetHeaderView.h; sourceTree = "<group>"; };
-		B88CAECEAAA05DDE9BD543FAF7F320BB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		B8F0F9D5590FF2C9CBC79B2346AF759E /* KLAlertActionButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertActionButton.m; sourceTree = "<group>"; };
-		BBCA7874E96E13263A52A5866E8FA6D7 /* KLAlertAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertAnimation.h; sourceTree = "<group>"; };
 		C1EBB9CA3645185901D697D97D6B8018 /* Pods-KLAlertController_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KLAlertController_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		C51333C107804ECF8427608618F62B3C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		C6BB2E40FA7314FFFF244B2FD839A658 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		C6DF455F160C01490B75648ED11DFA1D /* KLPopUpViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KLPopUpViewController.h; path = KLAlertController/Classes/KLPopUpViewController.h; sourceTree = "<group>"; };
+		C6E211B76BC7EE208006293DA49EB754 /* KLAlertControllerConstant.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KLAlertControllerConstant.h; path = KLAlertController/Classes/KLAlertControllerConstant.h; sourceTree = "<group>"; };
+		C8349BEE177633C1FA9578D01FB20EF2 /* KLPopUpViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KLPopUpViewController.m; path = KLAlertController/Classes/KLPopUpViewController.m; sourceTree = "<group>"; };
+		C977D0E791062BD6DB22E8BA46F3437B /* KLAlertController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KLAlertController-prefix.pch"; sourceTree = "<group>"; };
 		CA492EC9907674AFC920A917263E3313 /* Pods-KLAlertController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KLAlertController_Example.release.xcconfig"; sourceTree = "<group>"; };
-		D0F65D04C02AA8939915DB6A0AC01153 /* KLSheetActionGroupView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLSheetActionGroupView.h; sourceTree = "<group>"; };
+		D0C5C657431FF384CFDE1F52F2255B3B /* KLAlertAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertAnimation.m; sourceTree = "<group>"; };
 		D100F47F5FECCA555C616F7D93D7CB4B /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
+		D15DB0F5D418A72EF46C83D8628E57B8 /* KLAlertController.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = KLAlertController.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D2893153F5C6A0C979675F1BF87540F6 /* Pods-KLAlertController_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KLAlertController_Example-frameworks.sh"; sourceTree = "<group>"; };
-		D402FC73FA6F0845EF5A7F5A82B03918 /* KLAlertSingleton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertSingleton.m; sourceTree = "<group>"; };
-		D5C7A345E0CCE0049C3FF1690AA38EC3 /* KLAlertAction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertAction.m; sourceTree = "<group>"; };
+		D48BA5432FC4610379580577F6B12CB7 /* KLAlertController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KLAlertController.xcconfig; sourceTree = "<group>"; };
+		DB41395A279D05F153E3B3209D1BB0BB /* KLAlertAction.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertAction.h; sourceTree = "<group>"; };
+		DBACBDC3C8072893FE9E7290B1E03B08 /* KLAlertController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KLAlertController.h; path = KLAlertController/Classes/KLAlertController.h; sourceTree = "<group>"; };
 		DF2C4ADF63950067A55694A367E9C4A7 /* Pods-KLAlertController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KLAlertController_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DF48D82622C6D1FFAC5752C7BB004472 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		E476E5DC364B11085C84F8770A12FD3B /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
 		E4A64CDFFB979EB7723F9F768DE6A000 /* Pods-KLAlertController_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KLAlertController_Example-umbrella.h"; sourceTree = "<group>"; };
 		E6225045F2DF7AF603D15E0A59933930 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
+		E69723B2C0F41C3AD8EB4C2B8855DEC9 /* KLAlertHeaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertHeaderView.h; sourceTree = "<group>"; };
 		E76C36A4D46342270A9242567CEB9E2F /* Pods-KLAlertController_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KLAlertController_Example-Info.plist"; sourceTree = "<group>"; };
 		E842DDFF58CD5C5730BD31726D582313 /* Pods-KLAlertController_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KLAlertController_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		EA1849840A1D197D24B0921E86923536 /* KLAlertBaseAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertBaseAnimation.m; sourceTree = "<group>"; };
-		EABD7DA05757F4A3014C97B4B15A6DA3 /* KLAlertController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KLAlertController-Info.plist"; sourceTree = "<group>"; };
-		EDB6116DBA49E77F690598E58A531D65 /* KLAlertSingleton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertSingleton.h; sourceTree = "<group>"; };
+		EAF7A6BF5C98387632FF959E3E57E448 /* KLAlertBaseAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertBaseAnimation.h; sourceTree = "<group>"; };
 		EFF909907D9794E4C781DAC1693A7018 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		F05C6EDBC8E4591F89BD9F1E17FBFC97 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
 		F20A7188ABF123273A3C22C4340688AC /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASAdditions.h"; path = "Masonry/NSArray+MASAdditions.h"; sourceTree = "<group>"; };
-		F3AE5F653CD555A043473807D0CDFC25 /* KLAlertController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KLAlertController.h; path = KLAlertController/Classes/KLAlertController.h; sourceTree = "<group>"; };
-		F59754840E3337FBFD7AEFA8C33A81E1 /* KLAlertPresentingViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertPresentingViewController.m; sourceTree = "<group>"; };
+		F20D8F6802A6218D0648C59EA0302A4F /* KLAlertSingleton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KLAlertSingleton.m; sourceTree = "<group>"; };
+		F3A9AA3C700D045C85C00322232E02C0 /* KLSheetHeaderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLSheetHeaderView.h; sourceTree = "<group>"; };
 		FE7A0F064F168E6660B03C9639A19329 /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
+		FED7812D8094928E63A816696FCE9888 /* KLAlertAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KLAlertAnimation.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,25 +255,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07D42624054CD0DBEEF63D94D43232AE /* Alert */ = {
+		0ECC2F1CDEEA94A625610DFFF673C3B4 /* KLAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				A1180C1B8F152CC36214348B7C8E3AD5 /* KLAlertActionGroupView.h */,
-				3B689DD112DB25BC47171CABB2539320 /* KLAlertActionGroupView.m */,
-				1D96192BE54AD92F881D1DA73D044B90 /* KLAlertContentView.h */,
-				94F439E4FD02CC243AE490F83555B3FB /* KLAlertContentView.m */,
-				1A4DE2924A6A800FC10AB725B105F7DC /* KLAlertHeaderView.h */,
-				00120C047799A76EB8346C0D51195A03 /* KLAlertHeaderView.m */,
+				DBACBDC3C8072893FE9E7290B1E03B08 /* KLAlertController.h */,
+				44145BF02070C502485F8228BA508ECE /* KLAlertController.m */,
+				C6E211B76BC7EE208006293DA49EB754 /* KLAlertControllerConstant.h */,
+				C6DF455F160C01490B75648ED11DFA1D /* KLPopUpViewController.h */,
+				C8349BEE177633C1FA9578D01FB20EF2 /* KLPopUpViewController.m */,
+				94C76C725A5004D2A2DCD73437161A34 /* Animation */,
+				1E0EABE3EC14B6B81CFAB1B238971F2A /* Model */,
+				FBFB27508320F9B2124EC3D7BE65F1E5 /* Other */,
+				1DA8CDC50A315215971854B14C0B5B17 /* Pod */,
+				8E4471EF9F20E308DD8232FAA9368D9C /* Support Files */,
+				DC302D3150E4E8C7DEC7D36F3379B4D6 /* View */,
 			);
-			path = Alert;
+			name = KLAlertController;
+			path = ../..;
 			sourceTree = "<group>";
 		};
-		0C94F3C7571BC0B906BCA4733228CA15 /* Development Pods */ = {
+		1DA8CDC50A315215971854B14C0B5B17 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				71B8C45132CF5CD2CE8E3FFFDAB81D35 /* KLAlertController */,
+				D15DB0F5D418A72EF46C83D8628E57B8 /* KLAlertController.podspec */,
+				6E1B16355544EE317DF8AD6BCD2DDCF7 /* LICENSE */,
+				C51333C107804ECF8427608618F62B3C /* README.md */,
 			);
-			name = "Development Pods";
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		1E0EABE3EC14B6B81CFAB1B238971F2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB41395A279D05F153E3B3209D1BB0BB /* KLAlertAction.h */,
+				3A599F358419F639AE93677B8BC02DAC /* KLAlertAction.m */,
+			);
+			name = Model;
+			path = KLAlertController/Classes/Model;
 			sourceTree = "<group>";
 		};
 		4BA505CA5FCD50B3B464E5B881E20284 /* Targets Support Files */ = {
@@ -315,6 +333,7 @@
 				071ABA9DA4A53122DD0382E7C7F6CBEB /* ViewController+MASAdditions.m */,
 				BDFB34A12FABD70C59DCE49920774B47 /* Support Files */,
 			);
+			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -329,25 +348,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		71B8C45132CF5CD2CE8E3FFFDAB81D35 /* KLAlertController */ = {
-			isa = PBXGroup;
-			children = (
-				F3AE5F653CD555A043473807D0CDFC25 /* KLAlertController.h */,
-				341EB52D465605BF6B18F6BDDF37F4CB /* KLAlertController.m */,
-				54E52C1F23B9AD9E0064E43F /* KLPopUpViewController.h */,
-				54E52C2023B9AD9E0064E43F /* KLPopUpViewController.m */,
-				610BBB5AAC9226EE608D29ACF6DE834E /* KLAlertControllerConstant.h */,
-				D5F1F98F0E50085A34099AA987C3D246 /* Animation */,
-				AFA3C1778155313497A03933F27E5E15 /* Model */,
-				DFAFF4CD4BC4DC3FF037476931ED903D /* Other */,
-				D9603C53983E45758731A76F04110E82 /* Pod */,
-				AB458DCA06C785B679415B285227E2A4 /* Support Files */,
-				805A6576BFFD8B3EA158A8CC2AA4E7EB /* View */,
-			);
-			name = KLAlertController;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		7529FD53BCE26816CCD46658378AAF1B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,42 +356,68 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		805A6576BFFD8B3EA158A8CC2AA4E7EB /* View */ = {
+		7C73353E8ED3D1FADF48EB4D701AE634 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5656A9C655E19494233DF9FA9CC9B4B4 /* KLAlertActionButton.h */,
-				B8F0F9D5590FF2C9CBC79B2346AF759E /* KLAlertActionButton.m */,
-				3384091A18E6CD655B30591731FDC52B /* KLAlertCustomizeHeaderView.h */,
-				307C93908E760745FB70248A70C39C20 /* KLAlertCustomizeHeaderView.m */,
-				07D42624054CD0DBEEF63D94D43232AE /* Alert */,
-				BCD9B9DCE101D703FDB397AB401D32FF /* Sheet */,
+				0ECC2F1CDEEA94A625610DFFF673C3B4 /* KLAlertController */,
 			);
-			name = View;
-			path = KLAlertController/Classes/View;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		AB458DCA06C785B679415B285227E2A4 /* Support Files */ = {
+		8C028EAD8777D208CD4E3AD2F99B977B /* Alert */ = {
 			isa = PBXGroup;
 			children = (
-				66D436D87F0855E95AEBB0C94A698EF9 /* KLAlertController.modulemap */,
-				0179116FE4CEA5ECB48F8D5FBF39A388 /* KLAlertController.xcconfig */,
-				A479A67EC5877C372C962CF5031B87CA /* KLAlertController-dummy.m */,
-				EABD7DA05757F4A3014C97B4B15A6DA3 /* KLAlertController-Info.plist */,
-				4C5938ECBD5F4D2F9549F699760886F2 /* KLAlertController-prefix.pch */,
-				3F7BB6D70CCBAAF2B4D47867D115D8D4 /* KLAlertController-umbrella.h */,
+				B01B63EF82D0DDEADEB3C21C8223FB29 /* KLAlertActionGroupView.h */,
+				339A8595792E39619E78BB5C38788960 /* KLAlertActionGroupView.m */,
+				A9EA0B836FD7736D010D16A240393926 /* KLAlertContentView.h */,
+				715D4ABBD64EE45994F2E5C81818C55B /* KLAlertContentView.m */,
+				E69723B2C0F41C3AD8EB4C2B8855DEC9 /* KLAlertHeaderView.h */,
+				34A64A35B806454C0CA85C11FBFADBDA /* KLAlertHeaderView.m */,
+			);
+			name = Alert;
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		8E4471EF9F20E308DD8232FAA9368D9C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3207AB53F7148B967D2EC4278135FFA6 /* KLAlertController.modulemap */,
+				D48BA5432FC4610379580577F6B12CB7 /* KLAlertController.xcconfig */,
+				4842511F88BE1A079DED71A85E1B883A /* KLAlertController-dummy.m */,
+				1DCFDCCCA21EF2BDC4659060DD8F6696 /* KLAlertController-Info.plist */,
+				C977D0E791062BD6DB22E8BA46F3437B /* KLAlertController-prefix.pch */,
+				1BA0021F7AB6BE692C8633A5ED6CC8CB /* KLAlertController-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/KLAlertController";
 			sourceTree = "<group>";
 		};
-		AFA3C1778155313497A03933F27E5E15 /* Model */ = {
+		94C76C725A5004D2A2DCD73437161A34 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				4E1061DF114CC29747329360A315A6B5 /* KLAlertAction.h */,
-				D5C7A345E0CCE0049C3FF1690AA38EC3 /* KLAlertAction.m */,
+				96BF8566B213592E7A49BD148E1A68DE /* KLActionSheetAnimation.h */,
+				90ECCFA2DB0407295141396650A47FAA /* KLActionSheetAnimation.m */,
+				FED7812D8094928E63A816696FCE9888 /* KLAlertAnimation.h */,
+				D0C5C657431FF384CFDE1F52F2255B3B /* KLAlertAnimation.m */,
+				EAF7A6BF5C98387632FF959E3E57E448 /* KLAlertBaseAnimation.h */,
+				457E3BDC78F28758E45A9577B77D9473 /* KLAlertBaseAnimation.m */,
 			);
-			name = Model;
-			path = KLAlertController/Classes/Model;
+			name = Animation;
+			path = KLAlertController/Classes/Animation;
+			sourceTree = "<group>";
+		};
+		B3746F420B0C6F454A4CC05DEABE82CD /* Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				7072CF583D17D6DD9537DC52F2619D1C /* KLSheetActionGroupView.h */,
+				062136C0E1DCF73D5E42FB5547FA82B1 /* KLSheetActionGroupView.m */,
+				A2D408C489B65A913ACC739B70F6BE5E /* KLSheetContentView.h */,
+				9CA91BD6899BEEAAF6622B2CC94E9D50 /* KLSheetContentView.m */,
+				F3A9AA3C700D045C85C00322232E02C0 /* KLSheetHeaderView.h */,
+				529AE0B0153AAB34F4554C22DE45CAC2 /* KLSheetHeaderView.m */,
+			);
+			name = Sheet;
+			path = Sheet;
 			sourceTree = "<group>";
 		};
 		B8E2C472EF7E7FDC3762375EC6A7F033 /* iOS */ = {
@@ -401,19 +427,6 @@
 				EFF909907D9794E4C781DAC1693A7018 /* UIKit.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		BCD9B9DCE101D703FDB397AB401D32FF /* Sheet */ = {
-			isa = PBXGroup;
-			children = (
-				D0F65D04C02AA8939915DB6A0AC01153 /* KLSheetActionGroupView.h */,
-				1409155B34109FFDDF3C90BCC5981321 /* KLSheetActionGroupView.m */,
-				8E97AE9882086BC321B7DC65B99CC0E3 /* KLSheetContentView.h */,
-				77FD851C917B6F88D5C1D9A9701DF896 /* KLSheetContentView.m */,
-				B8413A47B20D1B216473C55118FC9845 /* KLSheetHeaderView.h */,
-				A4B9381ED62B30F4423BBC5DE6AD3FD9 /* KLSheetHeaderView.m */,
-			);
-			path = Sheet;
 			sourceTree = "<group>";
 		};
 		BDFB34A12FABD70C59DCE49920774B47 /* Support Files */ = {
@@ -434,7 +447,7 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				0C94F3C7571BC0B906BCA4733228CA15 /* Development Pods */,
+				7C73353E8ED3D1FADF48EB4D701AE634 /* Development Pods */,
 				DF275781DF9628A2D5BF35F5D74F7BC1 /* Frameworks */,
 				7529FD53BCE26816CCD46658378AAF1B /* Pods */,
 				6F774B31CBB48DEB64D039173DE6ED67 /* Products */,
@@ -442,28 +455,18 @@
 			);
 			sourceTree = "<group>";
 		};
-		D5F1F98F0E50085A34099AA987C3D246 /* Animation */ = {
+		DC302D3150E4E8C7DEC7D36F3379B4D6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4F274C32B1D25BEA9B9A2112317E835D /* KLActionSheetAnimation.h */,
-				47810579FD4FAE16AC8EB47DE7D9E055 /* KLActionSheetAnimation.m */,
-				BBCA7874E96E13263A52A5866E8FA6D7 /* KLAlertAnimation.h */,
-				975BD89DDAA254B6C790191584622531 /* KLAlertAnimation.m */,
-				A424715C6D15DF4712F8BE42C1B9D03B /* KLAlertBaseAnimation.h */,
-				EA1849840A1D197D24B0921E86923536 /* KLAlertBaseAnimation.m */,
+				1B38EA241F308D5D871C2A823E301EAF /* KLAlertActionButton.h */,
+				33F048A79BCD64245030145CFF1049A1 /* KLAlertActionButton.m */,
+				6EAD981625118AC5D72E987806B0701F /* KLAlertCustomizeHeaderView.h */,
+				971220A8E081940836C430F3076D860C /* KLAlertCustomizeHeaderView.m */,
+				8C028EAD8777D208CD4E3AD2F99B977B /* Alert */,
+				B3746F420B0C6F454A4CC05DEABE82CD /* Sheet */,
 			);
-			name = Animation;
-			path = KLAlertController/Classes/Animation;
-			sourceTree = "<group>";
-		};
-		D9603C53983E45758731A76F04110E82 /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				A2200AEBCA79273A0C72C2CA887053AE /* KLAlertController.podspec */,
-				B88CAECEAAA05DDE9BD543FAF7F320BB /* LICENSE */,
-				5964E2C7669F1904AEC12F76141DE2D4 /* README.md */,
-			);
-			name = Pod;
+			name = View;
+			path = KLAlertController/Classes/View;
 			sourceTree = "<group>";
 		};
 		DD970D8C8011C071554AF86113F24C95 /* Pods-KLAlertController_Example */ = {
@@ -492,20 +495,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DFAFF4CD4BC4DC3FF037476931ED903D /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				23E70CCB0E772FD76E7F39409D768F83 /* KLAlertPresentingViewController.h */,
-				F59754840E3337FBFD7AEFA8C33A81E1 /* KLAlertPresentingViewController.m */,
-				EDB6116DBA49E77F690598E58A531D65 /* KLAlertSingleton.h */,
-				D402FC73FA6F0845EF5A7F5A82B03918 /* KLAlertSingleton.m */,
-				4B4855E94A3C80E8DD7BA8D62C6C904B /* NSParagraphStyle+Shortcut.h */,
-				9145020018FFAFA66E52A8A202CCD5B4 /* NSParagraphStyle+Shortcut.m */,
-			);
-			name = Other;
-			path = KLAlertController/Classes/Other;
-			sourceTree = "<group>";
-		};
 		E9BB0E9022309792098B84F32A0C4612 /* Pods-KLAlertController_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,35 +511,23 @@
 			path = "Target Support Files/Pods-KLAlertController_Tests";
 			sourceTree = "<group>";
 		};
+		FBFB27508320F9B2124EC3D7BE65F1E5 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				34F14FF373DFE24A09CCC329725EE648 /* KLAlertPresentingViewController.h */,
+				1D7B9D3FA440845B8E4A9686A5F509D1 /* KLAlertPresentingViewController.m */,
+				57B9A615500264F4DDD03D9BC0925AA8 /* KLAlertSingleton.h */,
+				F20D8F6802A6218D0648C59EA0302A4F /* KLAlertSingleton.m */,
+				18F1D9D63584B1962D880BA16B0C9E1F /* NSParagraphStyle+Shortcut.h */,
+				241E8CF061D3D9CADE64F5BBE9F14462 /* NSParagraphStyle+Shortcut.m */,
+			);
+			name = Other;
+			path = KLAlertController/Classes/Other;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		626CB5CC4B50607CEB7116E17A6948E2 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AAD58C471A739B21D1146E83B1348CBA /* KLActionSheetAnimation.h in Headers */,
-				BC765AA3808D1F5DB7E191F7971F81D7 /* KLAlertAction.h in Headers */,
-				60ACF15AF28B745A3631C25745B544BF /* KLAlertActionButton.h in Headers */,
-				7866547FBF5570E2E95CBD0FADB09D2F /* KLAlertActionGroupView.h in Headers */,
-				54E52C2123B9AD9E0064E43F /* KLPopUpViewController.h in Headers */,
-				1DCB7A0F44CD5F04A6ABB22B6735E52F /* KLAlertAnimation.h in Headers */,
-				4625F983A94B26CA47F7782CE7E7F77A /* KLAlertBaseAnimation.h in Headers */,
-				409A609E26734172C1FC293CDD26A842 /* KLAlertContentView.h in Headers */,
-				BE3768AE91A51FE8D729886EA0D30E71 /* KLAlertController-umbrella.h in Headers */,
-				8496FB577C6D9857311E844C1C07F66C /* KLAlertController.h in Headers */,
-				E84AE94898220F6ECE6C56171BD0EA3A /* KLAlertControllerConstant.h in Headers */,
-				03CD0DD3189BFA8240E4986DF526F69F /* KLAlertCustomizeHeaderView.h in Headers */,
-				35CD4E8A2B16FA4318256323AB17C0AF /* KLAlertHeaderView.h in Headers */,
-				75477BE57887C7490C55591FDA52BA32 /* KLAlertPresentingViewController.h in Headers */,
-				9ACA4333F868C05A2A84C35644362158 /* KLAlertSingleton.h in Headers */,
-				724751DE91B2BD6B728E196822CF30F8 /* KLSheetActionGroupView.h in Headers */,
-				325E33017CA518DE157B176561EF9CA7 /* KLSheetContentView.h in Headers */,
-				A53E00C24040E79B34A7909707F3022B /* KLSheetHeaderView.h in Headers */,
-				A680772ADC05DE7D829364E225A46588 /* NSParagraphStyle+Shortcut.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8D4ABD608BA09E4BAFCF9B2090A3D218 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -579,6 +556,32 @@
 				19AA1B48B5D8C26C915752BC5D878995 /* View+MASAdditions.h in Headers */,
 				CEBEFF98C7747BB15DCA9DC26614873C /* View+MASShorthandAdditions.h in Headers */,
 				445CB14AC1143C6C7A4A957A4A123E31 /* ViewController+MASAdditions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC357CF7536D0F8C6353C4989D661705 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				615D59D912E8955CDBD7926EB7787813 /* KLActionSheetAnimation.h in Headers */,
+				782518137C24B4F177F72F3E7AA6EB2D /* KLAlertAction.h in Headers */,
+				9158A74917227FDD7EF6A53E694E672E /* KLAlertActionButton.h in Headers */,
+				10336FBF6FFA9D8D2EBDF825265021C1 /* KLAlertActionGroupView.h in Headers */,
+				354BF61E57064CC02FF8F723EE3B9A2F /* KLAlertAnimation.h in Headers */,
+				0A27BBF28EF07338A45BD240F87B7AF9 /* KLAlertBaseAnimation.h in Headers */,
+				49A76BC5E6A4B0D4367A341E6A7DCF35 /* KLAlertContentView.h in Headers */,
+				3FE794D47217A017EDA87220837A6125 /* KLAlertController-umbrella.h in Headers */,
+				F86C6171D62BA5E5A1AF7BA9653E6E2A /* KLAlertController.h in Headers */,
+				6E6661CB3D91498FA299CC81EB131F6B /* KLAlertControllerConstant.h in Headers */,
+				BC50D8A8D01639C5536DAF21DEAEE8AD /* KLAlertCustomizeHeaderView.h in Headers */,
+				F329D10A72990636C8F06CAA0F347A52 /* KLAlertHeaderView.h in Headers */,
+				25464F6FBEC56C0E38BA4701B6034034 /* KLAlertPresentingViewController.h in Headers */,
+				7D8AF1491B198FFD02BF304C9688EE0E /* KLAlertSingleton.h in Headers */,
+				6E964274CA3F952918FF7231E01F84F3 /* KLPopUpViewController.h in Headers */,
+				A0EDB66057AE0DC639902449087BE120 /* KLSheetActionGroupView.h in Headers */,
+				A28D8A5FA3F72B2EC358148A8B4D8CE3 /* KLSheetContentView.h in Headers */,
+				23C27F58925718F00D40A9248135AF3B /* KLSheetHeaderView.h in Headers */,
+				AA06E527E28248A696AD1CDDD9E43F53 /* NSParagraphStyle+Shortcut.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,8 +620,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 210169015F8819DC8E709B798E99308E /* Build configuration list for PBXNativeTarget "KLAlertController" */;
 			buildPhases = (
-				626CB5CC4B50607CEB7116E17A6948E2 /* Headers */,
-				FF80ECC834057074650AC9969C9FC71A /* Sources */,
+				BC357CF7536D0F8C6353C4989D661705 /* Headers */,
+				E3422AD6631F4D81E3D1FA9A686D890F /* Sources */,
 				2D29D735C71129AB6D4E58C8EBDDCE98 /* Frameworks */,
 				1A234C75B1D8AFCB8497748623372E1E /* Resources */,
 			);
@@ -764,28 +767,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF80ECC834057074650AC9969C9FC71A /* Sources */ = {
+		E3422AD6631F4D81E3D1FA9A686D890F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E18CB606A6FCB1F6152FD76DE224D350 /* KLActionSheetAnimation.m in Sources */,
-				B1FC782207E4CF8BA44DC4B61F0B4F21 /* KLAlertAction.m in Sources */,
-				9BE4B64A7233439BB70225E0BBD30E67 /* KLAlertActionButton.m in Sources */,
-				A5C13433E03F045E66E6E188ED9E3EF8 /* KLAlertActionGroupView.m in Sources */,
-				7B6CC61A36E04419BCBE14996C30E8A4 /* KLAlertAnimation.m in Sources */,
-				F6DCC73E43C86F3C752511295D65B76B /* KLAlertBaseAnimation.m in Sources */,
-				28DC74F4F4727786045913BCAAB62C86 /* KLAlertContentView.m in Sources */,
-				9E402748F6FF64019ED6468BA102C120 /* KLAlertController-dummy.m in Sources */,
-				E6805EC669677BA12737833D4FD5E1F6 /* KLAlertController.m in Sources */,
-				3BD2399FECEDC47809F499E445ECC910 /* KLAlertCustomizeHeaderView.m in Sources */,
-				65C6ABB2963CB409425C9BB7F9931878 /* KLAlertHeaderView.m in Sources */,
-				37EFD922564E01800E315B5411F08983 /* KLAlertPresentingViewController.m in Sources */,
-				0FC6A1F66C2355B210DE69B2E6840108 /* KLAlertSingleton.m in Sources */,
-				80CC20C4BDA59BD120FF567433FF96AE /* KLSheetActionGroupView.m in Sources */,
-				54E52C2223B9AD9E0064E43F /* KLPopUpViewController.m in Sources */,
-				274D421C27F622090B52300DE3DA0A03 /* KLSheetContentView.m in Sources */,
-				06AEDF935E93824ACC4632823294140A /* KLSheetHeaderView.m in Sources */,
-				46A817C772E922F1D1315273AE6FCE95 /* NSParagraphStyle+Shortcut.m in Sources */,
+				90D6F28371E0B864CF364F1E8A310A82 /* KLActionSheetAnimation.m in Sources */,
+				39758F90670F5E7A1FE64B8364D58E6A /* KLAlertAction.m in Sources */,
+				444BB054A7FFB4AFEA476E6C58D3D9D1 /* KLAlertActionButton.m in Sources */,
+				F8B7212E080943DDDE5671021D0800A9 /* KLAlertActionGroupView.m in Sources */,
+				808611591C9D5DBCDE216EDE8D4FAD37 /* KLAlertAnimation.m in Sources */,
+				ED61CE00DF11932B63A4CBB6F7C38B9B /* KLAlertBaseAnimation.m in Sources */,
+				D417509696859E6D3BF5053FB84CB8D0 /* KLAlertContentView.m in Sources */,
+				65C1CFC38FF847543321400F1AF0D625 /* KLAlertController-dummy.m in Sources */,
+				F36447E231472230427417230D6E0975 /* KLAlertController.m in Sources */,
+				83CFD37529622B05D727F54FB9CD405A /* KLAlertCustomizeHeaderView.m in Sources */,
+				5F492002FF2135B972CAF9529A991C63 /* KLAlertHeaderView.m in Sources */,
+				CD589BEC50A585CCB392A0BE20A53683 /* KLAlertPresentingViewController.m in Sources */,
+				0A6CEEBA1FD8756AC91D6A0B5CA9B596 /* KLAlertSingleton.m in Sources */,
+				96E68D62582BC151D01757F6B22A7F1B /* KLPopUpViewController.m in Sources */,
+				FB9731C51267EFF5E21D9E01BEDF7ADC /* KLSheetActionGroupView.m in Sources */,
+				AC9EB8251235E0B2EFAB1B2F9CF85FB7 /* KLSheetContentView.m in Sources */,
+				57505C6408F04ADDDACB08F420A25F54 /* KLSheetHeaderView.m in Sources */,
+				AADCD1A5D7AC456BF0B2661AB7882E73 /* NSParagraphStyle+Shortcut.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -889,7 +892,7 @@
 		};
 		34380D8B2B44FF6309553CB7A6626099 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0179116FE4CEA5ECB48F8D5FBF39A388 /* KLAlertController.xcconfig */;
+			baseConfigurationReference = D48BA5432FC4610379580577F6B12CB7 /* KLAlertController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -972,7 +975,8 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
@@ -1075,7 +1079,7 @@
 		};
 		BD8BBF92F2BC0A8C0CF419FAEB231703 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0179116FE4CEA5ECB48F8D5FBF39A388 /* KLAlertController.xcconfig */;
+			baseConfigurationReference = D48BA5432FC4610379580577F6B12CB7 /* KLAlertController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

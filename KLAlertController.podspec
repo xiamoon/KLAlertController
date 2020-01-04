@@ -25,40 +25,40 @@ Pod::Spec.new do |s|
   s.dependency 'Masonry'
 
   s.source_files = 'KLAlertController/Classes/**/*'
-#  s.public_header_files = 'KLAlertController/*.h'
+#  s.public_header_files = 'KLAlertController/Classes/**/*.h'
   
-  s.subspec 'Other' do |other|
-    other.source_files = 'KLAlertController/Classes/Other/*.{h,m}'
-#    ss.public_header_files = 'KLAlertController/Other/*.h'
-  end
-
-  s.subspec 'Animation' do |animation|
-    animation.source_files = 'KLAlertController/Classes/Animation/*.{h,m}'
-#    ss.public_header_files = 'KLAlertController/Animation/*.h'
-  end
-
-  s.subspec 'Model' do |model|
-    model.source_files = 'KLAlertController/Classes/Model/*.{h,m}'
-#    ss.public_header_files = 'KLAlertController/Model/KLAlertAction.h'
-  end
-
-  s.subspec 'View' do |view|
-    view.source_files = 'KLAlertController/Classes/View/**/*.{h,m}'
-#    ss.public_header_files = 'KLAlertController/View/*.h'
-
-    view.subspec 'Alert' do |alert|
-      alert.dependency 'KLAlertController/Classes/Model'
-      alert.dependency 'KLAlertController/Classes/Other'
-      
-      alert.source_files = 'KLAlertController/Classes/View/Alert/*.{h,m}'
-#      sss.public_header_files = 'KLAlertController/View/Alert/*.h'
-    end
-
-    view.subspec 'Sheet' do |sheet|
-      sheet.dependency 'KLAlertController/Classes/View/Alert'
-      
-      sheet.source_files = 'KLAlertController/Classes/View/Sheet/*.{h,m}'
-#      sss.public_header_files = 'KLAlertController/View/Sheet/*.h'
-    end
-  end
+#  s.subspec 'Other' do |other|
+#    other.source_files = 'KLAlertController/Classes/Other/*.{h,m}'
+##    ss.public_header_files = 'KLAlertController/Other/*.h'
+#  end
+#
+#  s.subspec 'Animation' do |animation|
+#    animation.source_files = 'KLAlertController/Classes/Animation/*.{h,m}'
+##    ss.public_header_files = 'KLAlertController/Animation/*.h'
+#  end
+#
+#  s.subspec 'Model' do |model|
+#    model.source_files = 'KLAlertController/Classes/Model/*.{h,m}'
+##    ss.public_header_files = 'KLAlertController/Model/KLAlertAction.h'
+#  end
+#
+#  s.subspec 'View' do |view|
+#    view.source_files = 'KLAlertController/Classes/View/**/*.{h,m}'
+##    ss.public_header_files = 'KLAlertController/View/*.h'
+#
+#    view.subspec 'Alert' do |alert|
+#      alert.dependency 'KLAlertController/Classes/Model'
+#      alert.dependency 'KLAlertController/Classes/Other'
+#
+#      alert.source_files = 'KLAlertController/Classes/View/Alert/*.{h,m}'
+##      sss.public_header_files = 'KLAlertController/View/Alert/*.h'
+#    end
+#
+#    view.subspec 'Sheet' do |sheet|
+#      sheet.dependency 'KLAlertController/Classes/View/Alert'
+#
+#      sheet.source_files = 'KLAlertController/Classes/View/Sheet/*.{h,m}'
+##      sss.public_header_files = 'KLAlertController/View/Sheet/*.h'
+#    end
+#  end
 end

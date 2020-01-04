@@ -24,46 +24,5 @@
 
     ]
   },
-  "source_files": "KLAlertController/Classes/*",
-  "subspecs": [
-    {
-      "name": "Other",
-      "source_files": "KLAlertController/Classes/Other/*.{h,m}"
-    },
-    {
-      "name": "Animation",
-      "source_files": "KLAlertController/Classes/Animation/*.{h,m}"
-    },
-    {
-      "name": "Model",
-      "source_files": "KLAlertController/Classes/Model/*.{h,m}"
-    },
-    {
-      "name": "View",
-      "source_files": "KLAlertController/Classes/View/*.{h,m}",
-      "subspecs": [
-        {
-          "name": "Alert",
-          "source_files": "KLAlertController/Classes/View/Alert/*.{h,m}",
-          "dependencies": {
-            "KLAlertController/Classes/Model": [
-
-            ],
-            "KLAlertController/Classes/Other": [
-
-            ]
-          }
-        },
-        {
-          "name": "Sheet",
-          "source_files": "KLAlertController/Classes/View/Sheet/*.{h,m}",
-          "dependencies": {
-            "KLAlertController/Classes/View/Alert": [
-
-            ]
-          }
-        }
-      ]
-    }
-  ]
+  "source_files": "KLAlertController/Classes/**/*"
 }

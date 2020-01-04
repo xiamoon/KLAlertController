@@ -7,6 +7,7 @@
 //
 
 #import "KLAlertAction.h"
+#import "KLAlertActionButton.h"
 
 @interface KLAlertAction ()
 @property (nonatomic, copy, nullable) NSString *title;
