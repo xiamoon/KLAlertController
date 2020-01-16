@@ -65,11 +65,8 @@
         model.popController = viewControllerToPresent;
         model.animated = flag;
         model.completion = completion;
-        if (viewControllerToPresent.showPriority == KLPopUpControllerPriorityDefault) {
-            [self insertToPendingWith:model atIndex:0];
-        } else {
-            [self addToPendingWith:model];
-        }
+        
+        [self addToPendingWith:model];
         return;
     }
     
@@ -80,7 +77,8 @@
             return;
         }
         
-        if (viewControllerToPresent.showPriority == KLPopUpControllerPriorityDefault) { // 暂时隐藏旧的，弹出新的
+        if (viewControllerToPresent.showPriority >= self.currentPrentedVc.showPriority) { // 暂时隐藏当前的，弹出新的
+            
             self.isAnimating = YES;
             // 注意：这里不能调用kl_dismiss方法，因为这会触发下面"pop消失回调"的那两个方法。
             [self.currentPrentedVc dismissViewControllerAnimated:NO completion:^{
@@ -88,10 +86,14 @@
                 self.currentPrentedVc = nil;
                 [self kl_presentPopUpViewController:viewControllerToPresent animated:flag completion:completion];
             }];
-        } else if (viewControllerToPresent.showPriority == KLPopUpControllerPriorityLow) { // 旧的不隐藏，新的暂存
-            [self insertToStackWith:viewControllerToPresent atIndex:0];
+        } else { // 当前的不隐藏，新的暂存
+            [self addToStackWith:viewControllerToPresent];
+
+            if (completion) completion();
+            [self checkToPresentPendingPopUpController];
         }
     } else { // 当前没有正在显示的alert
+        
         self.isAnimating = YES;
         // 注意：这里不能调用kl_presentPopUpViewController方法，否则会进入死循环。
         [self presentViewController:viewControllerToPresent animated:flag completion:^{
@@ -101,7 +103,6 @@
             self.isAnimating = NO;
             
             if (completion) completion();
-            
             [self checkToPresentPendingPopUpController];
         }];
     }
@@ -117,7 +118,7 @@
     if (self.currentPrentedVc && [self.currentPrentedVc.identifier isEqualToString:identifier]) {
         [self.currentPrentedVc kl_dismissWithAnimated:animated completion:completion];
     }else {
-        [self removeEqualVcFromStackWithIdentifier:identifier];
+//        [self removeEqualVcFromStackWithIdentifier:identifier];
         
         if (completion) completion();
     }
@@ -179,42 +180,71 @@
     }];
 }
 
-// 移除alertedStack里相同identifier的alertController
-- (void)removeEqualVcFromStackWithIdentifier:(NSString *)identifier {
-    for (NSInteger i = self.alertedStack.count-1; i >= 0; i --) {
-        KLPopUpViewController *popUpVc = self.alertedStack[i];
-        if ([popUpVc.identifier isEqualToString:identifier]) {
-            [self.alertedStack removeObject:popUpVc];
-        }
-    }
-}
-
 - (void)addToStackWith:(KLPopUpViewController *)popUpViewController {
     if ([self.alertedStack containsObject:popUpViewController]) {
-        [self removeEqualVcFromStackWithIdentifier:popUpViewController.identifier];
+        [self.alertedStack removeObject:popUpViewController];
     }
-    [self.alertedStack addObject:popUpViewController];
+    
+    NSInteger inserIndex = NSNotFound; // 必须小于等于 self.alertStack.count
+    inserIndex = [self recursiveFindWithArray:self.alertedStack targetController:popUpViewController];
+    if (inserIndex != NSNotFound) {
+        inserIndex = MIN(inserIndex, self.alertedStack.count);
+    }
+    [self.alertedStack insertObject:popUpViewController atIndex:inserIndex];
 }
 
-- (void)insertToStackWith:(KLPopUpViewController *)popUpViewController atIndex:(NSUInteger)index {
-    if ([self.alertedStack containsObject:popUpViewController]) {
-        [self removeEqualVcFromStackWithIdentifier:popUpViewController.identifier];
+/// 二分法查找下标。subarrayWithRange(a, b) => a <= x < (a+b)
+- (NSInteger)recursiveFindWithArray:(NSArray *)array targetController:(KLPopUpViewController *)targetController {
+    
+    if (array.count == 0) {
+        return 0;
+    } else if (array.count == 1) {
+        return [self findIndexWithOneElementArray:array targetController:targetController];
     }
-    [self.alertedStack insertObject:popUpViewController atIndex:index];
+    
+    NSInteger middleIndex = array.count/2;
+    KLPopUpViewController *middleController = array[middleIndex];
+    
+    if (targetController.showPriority < middleController.showPriority) {
+        NSArray *a = [array subarrayWithRange:NSMakeRange(0, middleIndex)];
+        if (a.count == 1) {
+            return [self findIndexWithOneElementArray:a targetController:targetController];
+        } else {
+            return [self recursiveFindWithArray:a targetController:targetController];
+        }
+    } else if (targetController.showPriority >= middleController.showPriority) {
+        NSArray *b = [array subarrayWithRange:NSMakeRange(middleIndex, array.count-middleIndex)];
+        if (b.count == 1) {
+            return [self findIndexWithOneElementArray:b targetController:targetController];
+        } else {
+            return [self recursiveFindWithArray:b targetController:targetController];
+        }
+    }
+    
+    return NSNotFound;
+}
+
+- (NSInteger)findIndexWithOneElementArray:(NSArray *)array targetController:(KLPopUpViewController *)targetController {
+    
+    NSInteger inserIndex = NSNotFound;
+
+    KLPopUpViewController *controller = array.firstObject;
+    NSInteger originalIndex = [self.alertedStack indexOfObject:controller];
+    
+    if (targetController.showPriority < controller.showPriority) {
+        inserIndex = originalIndex;
+    } else {
+        inserIndex = originalIndex + 1;
+    }
+    
+    return inserIndex;
 }
 
 - (void)addToPendingWith:(KLPendingPopUpModel *)popUpModel {
     if ([self.pendingStack containsObject:popUpModel]) {
-        return;
+        [self.pendingStack removeObject:popUpModel];
     }
     [self.pendingStack addObject:popUpModel];
-}
-
-- (void)insertToPendingWith:(KLPendingPopUpModel *)popUpModel atIndex:(NSUInteger)index {
-    if ([self.pendingStack containsObject:popUpModel]) {
-        return;
-    }
-    [self.pendingStack insertObject:popUpModel atIndex:index];
 }
 
 - (void)logStack {

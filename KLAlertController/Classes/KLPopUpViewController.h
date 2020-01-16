@@ -10,15 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// 弹框显示优先级
-typedef NS_ENUM(NSInteger, KLPopUpControllerPriority) {
-    // 默认优先级的弹框会强制显示，并隐藏低优先级的弹框。
-    // 注意：相同优先级的弹框，后显示的要比先显示的优先级要高
-    KLPopUpControllerPriorityDefault,
-    
-    // 低优先级的弹框不会强制显示，会暂时隐藏
-    KLPopUpControllerPriorityLow,
-};
+// 弹框显示优先级：高优先级的弹窗会优先显示，显示时会暂时移除同优先级和低优先级的弹窗。低优先级的弹窗在显示时不会移除高优先级的弹窗
+typedef NSInteger KLPopUpControllerPriority;
+
+static const KLPopUpControllerPriority KLPopUpControllerPriorityRequired = 1000;
+static const KLPopUpControllerPriority KLPopUpControllerPriorityDefault = 750;
+static const KLPopUpControllerPriority KLPopUpControllerPriorityLow = 250;
 
 typedef NS_ENUM(NSInteger, KLPopUpControllerMaskType) {
     // maskView背景为普通颜色背景
