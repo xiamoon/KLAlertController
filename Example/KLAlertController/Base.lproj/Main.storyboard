@@ -21,6 +21,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kho-uR-eaA">
                                 <rect key="frame" x="167.5" y="98" width="40" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="SheetButton"/>
                                 <state key="normal" title="Sheet"/>
                                 <connections>
                                     <action selector="testSheet:" destination="whP-gf-Uak" eventType="touchUpInside" id="z53-h2-0fs"/>
@@ -28,6 +29,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eO-4E-Lri">
                                 <rect key="frame" x="171" y="44" width="33" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="AlertButton"/>
                                 <state key="normal" title="Alert"/>
                                 <connections>
                                     <action selector="testAlert:" destination="whP-gf-Uak" eventType="touchUpInside" id="ZSp-fq-RD7"/>
