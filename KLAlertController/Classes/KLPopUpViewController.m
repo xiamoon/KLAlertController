@@ -183,12 +183,14 @@
 
 - (void)kl_showWithAnimated:(BOOL)animated
               completion:(nullable void(^)(void))completionHandler {
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    [window endEditing:YES];
-    
-    KLAlertPresentingViewController *presentingVc = [[KLAlertSingleton sharedInstance] KLAlertPresentViewController];
-    
-    [presentingVc kl_presentPopUpViewController:self animated:animated completion:completionHandler];
+    dispatch_main_async_safe(^{
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [window endEditing:YES];
+        
+        KLAlertPresentingViewController *presentingVc = [[KLAlertSingleton sharedInstance] KLAlertPresentViewController];
+        
+        [presentingVc kl_presentPopUpViewController:self animated:animated completion:completionHandler];
+    });
 }
 
 #pragma mark - Dismiss
@@ -202,19 +204,21 @@
 
 - (void)kl_dismissWithAnimated:(BOOL)animated
                  completion:(nullable void (^)(void))completionHandler {
-    KLAlertPresentingViewController *presentingVc = [[KLAlertSingleton sharedInstance] KLAlertPresentViewController];
-    [presentingVc kl_popUpViewControllerWillDismiss:self];
-    
-    [self dismissViewControllerAnimated:animated completion:^{
-        if (self.dismissCompletion) {
-            self.dismissCompletion();
-        }
-        [presentingVc kl_popUpViewControllerDidDismiss];
+    dispatch_main_async_safe(^{
+        KLAlertPresentingViewController *presentingVc = [[KLAlertSingleton sharedInstance] KLAlertPresentViewController];
+        [presentingVc kl_popUpViewControllerWillDismiss:self];
         
-        if (completionHandler) {
-            completionHandler();
-        }
-    }];
+        [self dismissViewControllerAnimated:animated completion:^{
+            if (self.dismissCompletion) {
+                self.dismissCompletion();
+            }
+            [presentingVc kl_popUpViewControllerDidDismiss];
+            
+            if (completionHandler) {
+                completionHandler();
+            }
+        }];
+    });
 }
 
 #pragma mark - UIViewControllerTransitioningDelegate.
