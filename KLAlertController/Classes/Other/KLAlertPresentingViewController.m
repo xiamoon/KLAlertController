@@ -16,6 +16,7 @@
 @property (atomic, assign) BOOL isAnimating;
 @property (nonatomic, strong) KLPopUpViewController *currentPrentedVc;
 // 已经弹出过的KLPopUpViewController的栈
+//TODO: 把Mode存进去
 @property (nonatomic, strong) NSMutableArray<KLPopUpViewController *> *alertedStack;
 // 将要弹出的KLPopUpViewController，来不及弹出的KLPopUpViewController都会被放在这个数组里
 @property (nonatomic, strong) NSMutableArray<KLPendingPopUpModel *> *pendingStack;
@@ -60,7 +61,7 @@
         self.window.hidden = NO;
     }
     
-    if (self.isAnimating == YES) { // 如果正在进行跳转/消失动画，移入pending中
+    if (self.isAnimating == YES) { // 如果正在进行跳转或消失的动画，则移入pending中
         KLPendingPopUpModel *model = [[KLPendingPopUpModel alloc] init];
         model.popController = viewControllerToPresent;
         model.animated = flag;
@@ -73,14 +74,15 @@
     if (self.currentPrentedVc) { // 当前屏幕上有正在显示的alert
         if ([self.currentPrentedVc.identifier isEqualToString:viewControllerToPresent.identifier]) {
             if (completion) completion();
-            
+            [self checkToPresentPendingPopUpController];
+
             return;
         }
         
         if (viewControllerToPresent.showPriority >= self.currentPrentedVc.showPriority) { // 暂时隐藏当前的，弹出新的
             
             self.isAnimating = YES;
-            // 注意：这里不能调用kl_dismiss方法，因为这会触发下面"pop消失回调"的那两个方法。
+            // 注意：这里是手动控制消失，而不是用户触发的消失，所以不能调用kl_dismiss方法，否则会触发下面"pop消失回调"的那两个方法。
             [self.currentPrentedVc dismissViewControllerAnimated:NO completion:^{
                 self.isAnimating = NO;
                 self.currentPrentedVc = nil;
@@ -193,7 +195,7 @@
     [self.alertedStack insertObject:popUpViewController atIndex:inserIndex];
 }
 
-/// 二分法查找下标。subarrayWithRange(a, b) => a <= x < (a+b)
+/// 二分法查找下标。subarrayWithRange(a, b): a <= x < (a+b)，x为下标
 - (NSInteger)recursiveFindWithArray:(NSArray *)array targetController:(KLPopUpViewController *)targetController {
     
     if (array.count == 0) {
