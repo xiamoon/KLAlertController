@@ -10,9 +10,10 @@
 #import "KLAlertHeaderView.h"
 #import "KLAlertActionGroupView.h"
 #import "Masonry.h"
+#import "UIColor+KLDarkMode.h"
 
 @interface KLAlertContentView ()
-@property (nonatomic, strong) UIView *backContentView;
+@property (nonatomic, strong) UIView *backgroundView;
 @property (nonatomic, strong) UIScrollView *headerScrollView;
 @property (nonatomic, strong) UIView *separatorView;
 @property (nonatomic, strong) UIScrollView *actionScrollview;
@@ -27,24 +28,23 @@
     self = [super init];
     if (self) {
         self.separatorHeight = 1.0/[UIScreen mainScreen].scale;
-        self.separatorColor = [UIColor colorWithRed:228/255.0 green:228/255.0 blue:228/255.0 alpha:1.0];
+        self.separatorColor = UIColor.kl_LightAndDark([UIColor colorWithRed:228/255.0 green:228/255.0 blue:228/255.0 alpha:1.0], [UIColor colorWithRed:75/255.0 green:75/255.0 blue:75/255.0 alpha:1.0]);
         
-        self.backContentView = [[UIView alloc] init];
-        self.backContentView.backgroundColor = [UIColor whiteColor];
-        self.backContentView.layer.masksToBounds = YES;
-        [self addSubview:self.backContentView];
+        self.backgroundView = [[UIView alloc] init];
+        self.backgroundView.layer.masksToBounds = YES;
+        [self addSubview:self.backgroundView];
         
         self.headerScrollView = [[UIScrollView alloc] init];
-        [self.backContentView addSubview:self.headerScrollView];
+        [self.backgroundView addSubview:self.headerScrollView];
         
         self.separatorView = [[UIView alloc] init];
-        [self.backContentView addSubview:self.separatorView];
+        [self.backgroundView addSubview:self.separatorView];
         
         self.actionScrollview = [[UIScrollView alloc] init];
-        [self.backContentView addSubview:self.actionScrollview];
+        [self.backgroundView addSubview:self.actionScrollview];
         
         // layout
-        [self.backContentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        [self.backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.top.bottom.offset(0);
         }];
         
@@ -91,7 +91,8 @@
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
     if (newSuperview) {
-        self.backContentView.layer.cornerRadius = self.cornerRadius;
+        self.backgroundView.backgroundColor = self.backgroundViewColor;
+        self.backgroundView.layer.cornerRadius = self.cornerRadius;
         
         if (self.headerView) {
             [self.headerScrollView mas_updateConstraints:^(MASConstraintMaker *make) {

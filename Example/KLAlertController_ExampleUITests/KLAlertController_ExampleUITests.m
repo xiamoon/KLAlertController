@@ -61,9 +61,14 @@
 //    [self waitForExpectationsWithTimeout:5 handler:nil];
     
     
-    XCUIApplication *app = [[XCUIApplication alloc] init];
-    [app/*@START_MENU_TOKEN@*/.buttons[@"AlertButton"]/*[[".buttons[@\"Alert\"]",".buttons[@\"AlertButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ tap];
-    [app.scrollViews.otherElements.staticTexts[@"\u786e\u5b9a"] tap];
+    
+//    XCUIApplication *app = [[XCUIApplication alloc] init];
+//    [app.buttons[@"AlertButton"] tap];
+//    
+//    XCUIElement *staticText = app.scrollViews.otherElements.staticTexts[@"\u786e\u5b9a"];
+//    [staticText tap];
+//    [staticText tap];
+//    [staticText tap];
     
 }
 

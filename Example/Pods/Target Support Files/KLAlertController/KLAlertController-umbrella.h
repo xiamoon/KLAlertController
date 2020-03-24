@@ -20,6 +20,7 @@
 #import "KLAlertPresentingViewController.h"
 #import "KLAlertSingleton.h"
 #import "NSParagraphStyle+Shortcut.h"
+#import "UIColor+KLDarkMode.h"
 #import "KLAlertActionGroupView.h"
 #import "KLAlertContentView.h"
 #import "KLAlertHeaderView.h"

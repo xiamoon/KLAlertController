@@ -12,6 +12,7 @@
 #import "KLAlertActionButton.h"
 #import "KLAlertAction.h"
 #import "Masonry.h"
+#import "UIColor+KLDarkMode.h"
 
 @interface KLSheetContentView ()
 @property (nonatomic, strong) KLAlertAction *cancelAction;
@@ -28,7 +29,7 @@
     if (self) {
         self.sheetCancelButtonMarginTop = 8.0;
         self.cancelActionButtonHeight = 57.0;
-        self.cancelButtonAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:45/255.0 green:139/255.0 blue:245/255.0 alpha:1.0],
+        self.cancelButtonAttributes = @{NSForegroundColorAttributeName: UIColor.kl_LightAndDark([UIColor colorWithRed:45/255.0 green:139/255.0 blue:245/255.0 alpha:1.0], [UIColor colorWithRed:54/255.0 green:105/255.0 blue:200/255.0 alpha:1.0]),
                                         NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size:20]                             };
     }
     return self;
@@ -41,7 +42,7 @@
         self.cancelButtonWrapperView.layer.cornerRadius = self.cornerRadius;
         
         if (self.cancelButtonWrapperView) {
-            [self.backContentView mas_updateConstraints:^(MASConstraintMaker *make) {
+            [self.backgroundView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.bottom.offset(-self.sheetCancelButtonMarginTop-self.cancelActionButtonHeight);
             }];
             
@@ -67,24 +68,26 @@
 - (void)addCancelAction:(KLAlertAction *)action {
     if (!action) return;
     self.cancelAction = action;
-
-    UIView *cancelView = [[UIView alloc] init];
-    cancelView.backgroundColor = [UIColor whiteColor];
-    cancelView.layer.masksToBounds = YES;
-    [self addSubview:cancelView];
+    
+    if (self.cancelButtonWrapperView.superview) {
+        [self.cancelButtonWrapperView removeFromSuperview];
+    }
+    
+    self.cancelButtonWrapperView = [[UIView alloc] init];
+    self.cancelButtonWrapperView.backgroundColor = self.backgroundViewColor;
+    self.cancelButtonWrapperView.layer.masksToBounds = YES;
+    [self addSubview:self.cancelButtonWrapperView];
 
     KLAlertActionButton *cancelButton = [[KLAlertActionButton alloc] init];
     cancelButton.enabled = action.enabled;
     cancelButton.titleLabel.attributedText = [[NSAttributedString alloc] initWithString:self.cancelAction.title attributes:self.cancelButtonAttributes];
     [cancelButton addTarget:self action:@selector(handleCancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [cancelView addSubview:cancelButton];
+    [self.cancelButtonWrapperView addSubview:cancelButton];
     action.actionButton = cancelButton;
     
     [cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
-
-    self.cancelButtonWrapperView = cancelView;
 }
 
 #pragma mark - Override.

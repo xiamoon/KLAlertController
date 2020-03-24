@@ -300,7 +300,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 6003F589195388D20070C39A;
 					};
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 49VYEW5CMM;
+					};
 					6003F5AD195388D20070C39A = {
+						DevelopmentTeam = 49VYEW5CMM;
 						TestTargetID = 6003F589195388D20070C39A;
 					};
 				};
@@ -647,6 +651,7 @@
 			baseConfigurationReference = 51E42C50B9DBDDCE4C28819B /* Pods-KLAlertController_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 49VYEW5CMM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KLAlertController/KLAlertController-Prefix.pch";
 				INFOPLIST_FILE = "KLAlertController/KLAlertController-Info.plist";
@@ -663,6 +668,7 @@
 			baseConfigurationReference = CAF13D1E7B2ED1E448AD870F /* Pods-KLAlertController_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 49VYEW5CMM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KLAlertController/KLAlertController-Prefix.pch";
 				INFOPLIST_FILE = "KLAlertController/KLAlertController-Info.plist";
@@ -679,6 +685,7 @@
 			baseConfigurationReference = 78042D346B6C292A41EBE3BB /* Pods-KLAlertController_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 49VYEW5CMM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -704,6 +711,7 @@
 			baseConfigurationReference = D1F16EA81608D7B54063A526 /* Pods-KLAlertController_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 49VYEW5CMM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",

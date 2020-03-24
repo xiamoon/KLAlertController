@@ -12,13 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface KLAlertContentView : UIView
 
-@property (nonatomic, strong, readonly) UIView *backContentView;
+@property (nonatomic, strong, readonly) UIView *backgroundView;
 
 //! 内容区高度
 @property (nonatomic, assign) CGFloat contentMaximumHeight;
 //! 圆角值
 @property (nonatomic, assign) CGFloat cornerRadius;
 
+//! 背景颜色
+@property (nonatomic, strong) UIColor *backgroundViewColor;
 //! 线的宽度，默认1px
 @property (nonatomic, assign) CGFloat separatorHeight;
 //! 线的颜色，

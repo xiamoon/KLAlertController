@@ -6,6 +6,8 @@
 //  Copyright (c) 2019 xiamoon. All rights reserved.
 //
 
+#import "KLAlertController.h"
+
 @import XCTest;
 
 @interface Tests : XCTestCase
@@ -28,7 +30,57 @@
 
 - (void)testExample
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    
+    KLAlertController *alert1 = [KLAlertController alertControllerWithTitle:@"你好1" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
+    [alert1 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+    [alert1 kl_show];
+    
+    KLAlertController *alert2 = [KLAlertController alertControllerWithTitle:@"你好2" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
+    alert2.showPriority = 700;
+    [alert2 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+    [alert2 kl_show];
+    
+    KLAlertController *alert3 = [KLAlertController alertControllerWithTitle:@"你好3" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
+    alert3.showPriority = 700;
+    [alert3 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+    [alert3 kl_show];
+}
+
+- (void)testExample2
+{
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    
+    KLAlertController *alert1 = [KLAlertController alertControllerWithTitle:@"你好1" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
+    [alert1 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+    [alert1 kl_show];
+    
+    KLAlertController *alert2 = [KLAlertController alertControllerWithTitle:@"你好2" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
+    alert2.showPriority = 700;
+    [alert2 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+    [alert2 kl_show];
+    
+    KLAlertController *alert3 = [KLAlertController alertControllerWithTitle:@"你好3" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
+    alert3.showPriority = 750;
+    [alert3 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+    [alert3 kl_show];
+}
+
+- (void)testExample3
+{
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    
+    KLAlertController *alert1 = [KLAlertController alertControllerWithTitle:@"你好1" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
+    [alert1 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+    [alert1 kl_show];
+    
+    KLAlertController *alert2 = [KLAlertController alertControllerWithTitle:@"你好2" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
+    [alert2 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+    [alert2 kl_show];
+    
+    KLAlertController *alert3 = [KLAlertController alertControllerWithTitle:@"你好3" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
+    [alert3 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+    [alert3 kl_show];
 }
 
 @end

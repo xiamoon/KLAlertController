@@ -174,9 +174,10 @@
         return;
     }
     
+    __weak typeof(self) weakSelf = self;
     KLPendingPopUpModel *pendingPopUpModel = self.pendingStack.firstObject;
     [self kl_presentPopUpViewController:pendingPopUpModel.popController animated:pendingPopUpModel.animated completion:^{
-        [self.pendingStack removeObject:pendingPopUpModel];
+        [weakSelf.pendingStack removeObject:pendingPopUpModel];
         
         if (pendingPopUpModel.completion) pendingPopUpModel.completion();
     }];

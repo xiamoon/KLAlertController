@@ -39,11 +39,13 @@ NS_CLASS_AVAILABLE_IOS(7_0)
                                 preferredStyle:(UIAlertControllerStyle)preferredStyle;
 - (void)addContentView:(UIView *)view;
 
+//! 内容区背景颜色
+//! @warning 如果要支持黑暗模式，记得color要用colorWithDynamicProvider动态生成
+@property (nonatomic, strong) UIColor *contentBackgroundColor;
 
 //! 中间内容区宽度。如果是alertView，默认270；如果是actionSheet，默认为屏幕宽度-8-8，跟系统保持一致
 //! 注意：如果是通过alertControllerWithContentView或者addContentView来添加内容，则contentWidth无默认值，除非手动指定
 @property (nonatomic, assign) CGFloat contentWidth;
-
 
 //   -----------------------
 //  |        ---------      |
@@ -86,6 +88,8 @@ NS_CLASS_AVAILABLE_IOS(7_0)
  ActionSheet:
  @{NSForegroundColorAttributeName: [UIColor colorWithRed:45/255.0 green:139/255.0 blue:245/255.0 alpha:1.0],
  NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Regular" size:20]};
+ 
+ @warning 如果要支持黑暗模式，记得NSForegroundColorAttributeName的方法要用colorWithDynamicProvider动态生成
  */
 @property(nonatomic, strong) NSDictionary<NSString *, id> *defaultButtonAttributes;
 
@@ -97,6 +101,8 @@ NS_CLASS_AVAILABLE_IOS(7_0)
  ActionSheet:
  @{NSForegroundColorAttributeName: [UIColor colorWithRed:45/255.0 green:139/255.0 blue:245/255.0 alpha:1.0],
  NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size:20]};
+ 
+ @warning 如果要支持黑暗模式，记得NSForegroundColorAttributeName的方法要用colorWithDynamicProvider动态生成
  */
 @property(nonatomic, strong) NSDictionary<NSString *, id> *cancelButtonAttributes;
 
@@ -108,6 +114,8 @@ NS_CLASS_AVAILABLE_IOS(7_0)
  ActionSheet:
  @{NSForegroundColorAttributeName: [UIColor redColor],
  NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Regular" size:20]};
+ 
+ @warning 如果要支持黑暗模式，记得NSForegroundColorAttributeName的方法要用colorWithDynamicProvider动态生成
  */
 @property(nonatomic, strong) NSDictionary<NSString *, id> *destructiveButtonAttributes;
 
@@ -117,6 +125,7 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 //! 线的宽度，默认1px
 @property (nonatomic, assign) CGFloat lineHeight;
 //! 线的颜色，
+//! @warning 如果要支持黑暗模式，记得color要用colorWithDynamicProvider动态生成
 @property (nonatomic, strong) UIColor *lineColor;
 
 @end

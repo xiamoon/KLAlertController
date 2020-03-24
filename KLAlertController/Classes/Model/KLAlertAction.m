@@ -18,8 +18,8 @@
 @implementation KLAlertAction
 
 + (instancetype)actionWithTitle:(NSString *)title
-                              style:(UIAlertActionStyle)style
-                            handler:(void (^)(KLAlertAction * _Nonnull))handler {
+                         style:(UIAlertActionStyle)style
+                       handler:(void (^)(KLAlertAction * _Nonnull))handler {
     KLAlertAction *action = [[KLAlertAction alloc] init];
     action.title = title;
     action.style = style;

@@ -10,6 +10,7 @@
 #import "Masonry.h"
 #import "KLAlertActionButton.h"
 #import "KLAlertAction.h"
+#import "UIColor+KLDarkMode.h"
 
 @interface KLAlertActionGroupView ()
 @property (nonatomic, strong) NSArray<KLAlertAction *> *actions;
@@ -25,13 +26,13 @@
         
         self.actionButtonHeight = 44.0;
         self.lineHeight = 1.0/[UIScreen mainScreen].scale;
-        self.lineColor = [UIColor colorWithRed:228/255.0 green:228/255.0 blue:228/255.0 alpha:1.0];
-        
-        self.defaultButtonAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:45/255.0 green:139/255.0 blue:245/255.0 alpha:1.0],
+        self.lineColor = UIColor.kl_LightAndDark([UIColor colorWithRed:228/255.0 green:228/255.0 blue:228/255.0 alpha:1.0], [UIColor colorWithRed:75/255.0 green:75/255.0 blue:75/255.0 alpha:1.0]);
+
+        self.defaultButtonAttributes = @{NSForegroundColorAttributeName: UIColor.kl_LightAndDark([UIColor colorWithRed:45/255.0 green:139/255.0 blue:245/255.0 alpha:1.0], [UIColor colorWithRed:54/255.0 green:105/255.0 blue:200/255.0 alpha:1.0]),
                                          NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Regular" size:17]                             };
-        self.cancelButtonAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:45/255.0 green:139/255.0 blue:245/255.0 alpha:1.0],
+        self.cancelButtonAttributes = @{NSForegroundColorAttributeName: UIColor.kl_LightAndDark([UIColor colorWithRed:45/255.0 green:139/255.0 blue:245/255.0 alpha:1.0], [UIColor colorWithRed:56/255.0 green:123/255.0 blue:245/255.0 alpha:1.0]),
                                         NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Semibold" size:17]                             };
-        self.destructiveButtonAttributes = @{NSForegroundColorAttributeName: [UIColor redColor],
+        self.destructiveButtonAttributes = @{NSForegroundColorAttributeName: UIColor.kl_LightAndDark([UIColor redColor], [UIColor colorWithRed:230/255.0 green:41/255.0 blue:41/255.0 alpha:1.0]),
                                              NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Regular" size:17]                             };
     }
     return self;

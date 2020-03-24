@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KLAlertControllerConstant.h"
+#import "UIColor+KLDarkMode.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -48,7 +50,6 @@ NS_CLASS_AVAILABLE_IOS(7_0)
                  completion:(nullable void(^)(void))completionHandler;
 
 @property (nonatomic, copy) void (^dismissCompletion)(void);
-
 @property (nonatomic, copy) void (^viewDidLayoutSubviewsBlock)(void);
 
 //! 弹出视图的唯一id，默认是一个UUID String。

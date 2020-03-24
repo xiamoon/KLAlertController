@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)actionWithTitle:(nullable NSString *)title
                               style:(UIAlertActionStyle)style
-                            handler:(void (^ __nullable)(KLAlertAction *action))handler;
+                            handler:(nullable void (^)(KLAlertAction *action))handler;
 
 @property (nullable, nonatomic, readonly) NSString *title;
 @property (nonatomic, assign, readonly) UIAlertActionStyle style;

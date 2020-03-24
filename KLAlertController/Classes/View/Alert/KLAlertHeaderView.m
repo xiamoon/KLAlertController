@@ -9,6 +9,7 @@
 #import "KLAlertHeaderView.h"
 #import "NSParagraphStyle+Shortcut.h"
 #import "Masonry.h"
+#import "UIColor+KLDarkMode.h"
 
 @interface KLAlertHeaderView ()
 @property (nonatomic, strong) NSString *title;
@@ -40,11 +41,11 @@
         self.title = title;
         self.message = message;
         
-        self.titleAttributes = @{NSForegroundColorAttributeName: [UIColor blackColor],
+        self.titleAttributes = @{NSForegroundColorAttributeName: UIColor.kl_LightAndDark([UIColor blackColor], [UIColor whiteColor]),
                              NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Medium" size:17],
                              NSParagraphStyleAttributeName: [NSParagraphStyle paragraphStyleWithLineBreakMode:NSLineBreakByWordWrapping textAlignment:NSTextAlignmentCenter]
                              };
-        self.messageAttributes = @{NSForegroundColorAttributeName: [UIColor blackColor],
+        self.messageAttributes = @{NSForegroundColorAttributeName: UIColor.kl_LightAndDark([UIColor blackColor], [UIColor colorWithRed:218/255.0 green:218/255.0 blue:218/255.0 alpha:1.0]),
                                NSFontAttributeName: [UIFont systemFontOfSize:13],
                                NSParagraphStyleAttributeName: [NSParagraphStyle paragraphStyleWithLineBreakMode:NSLineBreakByWordWrapping textAlignment:NSTextAlignmentCenter]
                                };

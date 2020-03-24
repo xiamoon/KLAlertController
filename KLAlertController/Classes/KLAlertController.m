@@ -108,6 +108,8 @@
             content = [self sheetContentView];
             content.contentMaximumHeight = self.contentMaximumHeight-self.sheetContentMarginBottom;
         }
+        self.contentBackgroundColor = UIColor.kl_LightAndDark([UIColor whiteColor], [UIColor colorWithRed:50/255.0 green:50/255.0 blue:50/255.0 alpha:1.0]);
+        content.backgroundViewColor = self.contentBackgroundColor;
         self.alertContentView = content;
         [self setCornerRadius:12.0];
     }
@@ -126,6 +128,11 @@
 }
 
 #pragma mark - Setter.
+- (void)setContentBackgroundColor:(UIColor *)contentBackgroundColor {
+    _contentBackgroundColor = contentBackgroundColor;
+    self.alertContentView.backgroundViewColor = contentBackgroundColor;
+}
+
 - (void)setContentWidth:(CGFloat)contentWidth {
     _contentWidth = contentWidth;
     [super setContentWidth:contentWidth];

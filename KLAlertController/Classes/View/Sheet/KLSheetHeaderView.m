@@ -9,17 +9,18 @@
 #import "KLSheetHeaderView.h"
 #import "NSParagraphStyle+Shortcut.h"
 #import "Masonry.h"
+#import "UIColor+KLDarkMode.h"
 
 @implementation KLSheetHeaderView
 
 - (instancetype)initWithTitle:(NSString *)title message:(NSString *)message {
     self = [super initWithTitle:title message:message];
     if (self) {
-        self.titleAttributes = @{NSForegroundColorAttributeName: [UIColor lightGrayColor],
+        self.titleAttributes = @{NSForegroundColorAttributeName: UIColor.kl_LightAndDark([UIColor lightGrayColor], [UIColor colorWithRed:110/255.0 green:110/255.0 blue:110/255.0 alpha:1.0]),
                              NSFontAttributeName: [UIFont fontWithName:@"PingFangSC-Medium" size:13],
                              NSParagraphStyleAttributeName: [NSParagraphStyle paragraphStyleWithLineBreakMode:NSLineBreakByWordWrapping textAlignment:NSTextAlignmentCenter]
                              };
-        self.messageAttributes = @{NSForegroundColorAttributeName: [UIColor lightGrayColor],
+        self.messageAttributes = @{NSForegroundColorAttributeName: UIColor.kl_LightAndDark([UIColor lightGrayColor], [UIColor colorWithRed:133/255.0 green:133/255.0 blue:133/255.0 alpha:1.0]),
                                NSFontAttributeName: [UIFont systemFontOfSize:12],
                                NSParagraphStyleAttributeName: [NSParagraphStyle paragraphStyleWithLineBreakMode:NSLineBreakByWordWrapping textAlignment:NSTextAlignmentCenter]
                                };

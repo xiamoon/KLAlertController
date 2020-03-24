@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 取消按钮高度默认57.0，跟系统保持一致
 @property (nonatomic, assign) CGFloat cancelActionButtonHeight;
 @property(nonatomic, strong) NSDictionary<NSString *, id> *cancelButtonAttributes;
+@property (nonatomic, strong) UIColor *cancelActionButtonBackgroundColor;
 
 - (void)addCancelAction:(KLAlertAction *)action;
 @property (nonatomic, copy) void (^klCancelAlertActionButtonHandler)(KLAlertAction *action);
