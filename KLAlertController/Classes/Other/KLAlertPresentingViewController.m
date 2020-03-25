@@ -17,13 +17,7 @@
 @property (atomic, assign) BOOL isPresenting;
 @property (atomic, assign) BOOL isDismissing;
 
-// 已经弹出过的KLPopUpViewController的栈
-//TODO: 把Mode存进去
-@property (nonatomic, strong) NSMutableArray<KLPopUpViewController *> *alertedStack;
-// 将要弹出的KLPopUpViewController，来不及弹出的KLPopUpViewController都会被放在这个数组里
-@property (nonatomic, strong) NSMutableArray<KLPendingPopUpModel *> *pendingStack;
-
-@property (nonatomic, strong) NSMutableArray<KLPopUpViewController *> *popUpStack;
+@property (nonatomic, strong) NSMutableArray<KLPopUpControllerModel *> *popUpStack;
 
 @end
 
@@ -37,7 +31,7 @@
 #ifdef __IPHONE_13_0
         if (@available(iOS 13, *)) {
             window = [[UIWindow alloc] initWithWindowScene:UIApplication.sharedApplication.keyWindow.windowScene];
-#warning - dfasdfas
+#warning - ???
 //            window.traitCollection.userInterfaceStyle = UIApplication.sharedApplication.keyWindow.traitCollection.userInterfaceStyle;
         } else {
             window = [[UIWindow alloc] init];
@@ -50,8 +44,6 @@
         window.windowLevel = UIWindowLevelAlert;
         self.window = window;
 
-        self.alertedStack = [NSMutableArray array];
-        self.pendingStack = [NSMutableArray array];
         self.popUpStack = [NSMutableArray array];
     }
     return self;
@@ -69,12 +61,12 @@
     }
     
     if (self.isAnimating) { // 如果正在进行跳转或消失的动画，则移入pending中
-        KLPendingPopUpModel *model = [self createModelWith:viewControllerToPresent animated:flag completion:completion];
-        [self addToStackWith:model];
+        KLPopUpControllerModel *model = [self createModelWith:viewControllerToPresent animated:flag completion:completion];
+        [self addToStackWithModel:model];
         return;
     }
     
-    if (self.presentedViewController) { // 当前屏幕上有正在显示的alert
+    if (self.presentedViewController) { // 当前屏幕上有已经显示的alert
         
         KLPopUpViewController *presentedViewController = (KLPopUpViewController *)self.presentedViewController;
         
@@ -83,38 +75,34 @@
             if (completion) completion();
             
             [self checkToPresentPendingPopUpController];
-            
             return;
         }
         
+        KLPopUpControllerModel *model = [self createModelWith:viewControllerToPresent animated:flag completion:completion];
+        [self addToStackWithModel:model];
+        
         if (viewControllerToPresent.showPriority >= presentedViewController.showPriority) {
             
-            [self kl_dismissPopUpViewController:presentedViewController animated:NO completion:^{
-                
-                [self kl_presentPopUpViewController:viewControllerToPresent animated:flag completion:completion];
-            }];
-            
+            // 暂时隐藏当前的，并弹出新的
+            [self _kl_dismissPopUpViewController:presentedViewController animated:NO completion:nil];
         } else {
-            [self addToStackWith:viewControllerToPresent];
 
             if (completion) completion();
-            
             [self checkToPresentPendingPopUpController];
         }
         
     } else { // 当前没有正在显示的alert
         
+        KLPopUpControllerModel *model = [self createModelWith:viewControllerToPresent animated:flag completion:completion];
+        [self addToStackWithModel:model];
+        
         self.isPresenting = YES;
-        
-        KLPendingPopUpModel *model = [self createModelWith:viewControllerToPresent animated:flag completion:completion];
-        [self addToStackWith:model];
-        
+
         [self presentViewController:viewControllerToPresent animated:flag completion:^{
             
             self.isPresenting = NO;
             
             if (completion) completion();
-            
             [self checkToPresentPendingPopUpController];
         }];
     }
@@ -130,40 +118,39 @@
         return;
     }
     
+    [self removeFromStackWithController:viewControllerToDismiss];
+
     if (self.isAnimating) { // self.presentedViewController正在被present或dismiss
-        if ([viewControllerToDismiss isEqual:self.presentedViewController]) {
-            
-        } else {
-            [self removeFromStackAndPendingWith:viewControllerToDismiss];
-        }
-        
         if (completion) completion();
         return;
     }
     
-    [self removeFromStackAndPendingWith:viewControllerToDismiss];
-
     if ([viewControllerToDismiss isEqual:self.presentedViewController]) {
+        [self _kl_dismissPopUpViewController:viewControllerToDismiss animated:flag completion:completion];
+    }
+}
+
+- (void)_kl_dismissPopUpViewController:(KLPopUpViewController *)viewControllerToDismiss
+                              animated:(BOOL)flag
+                            completion:(nullable void(^)(void))completion {
+    self.isDismissing = YES;
+    
+    [viewControllerToDismiss dismissViewControllerAnimated:flag completion:^{
         
-        self.isDismissing = YES;
+        self.isDismissing = NO;
         
-        [viewControllerToDismiss dismissViewControllerAnimated:flag completion:^{
-            
-            self.isDismissing = NO;
-            
-            if (completion) completion();
-            
-            if (self.pendingStack.count != 0) {
+        if (completion) completion();
+        
+        if (self.popUpStack.count == 0) {
+            [self clearUpResource];
+        } else {
+            if ([self hasPendingPopUpController]) {
                 [self checkToPresentPendingPopUpController];
             } else {
-                if (self.alertedStack.count != 0) {
-                    [self checkToPresentStackedPopUpController];
-                } else {
-                    [self clearUpResource];
-                }
+                [self checkToPresentStackedPopUpController];
             }
-        }];
-    }
+        }
+    }];
 }
 
 - (BOOL)kl_isAlertControllerCurrentShowed {
@@ -174,18 +161,10 @@
                                      animated:(BOOL)animated
                                    completion:(nullable void (^)(void))completion {
     
-    // 1.从pendingStack中移除
-    [self.pendingStack enumerateObjectsUsingBlock:^(KLPendingPopUpModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj.popController.identifier isEqualToString:identifier]) {
-            [self.pendingStack removeObject:obj];
-        }
-    }];
-    
-    // 2.从alertedStack中移除
     __block KLPopUpViewController *viewControllerToRemove = nil;
-    [self.alertedStack enumerateObjectsUsingBlock:^(KLPopUpViewController * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj.identifier isEqualToString:identifier]) {
-            viewControllerToRemove = obj;
+    [self.popUpStack enumerateObjectsUsingBlock:^(KLPopUpControllerModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.popUpController.identifier isEqualToString:identifier]) {
+            viewControllerToRemove = obj.popUpController;
             *stop = YES;
         }
     }];
@@ -196,12 +175,9 @@
 - (void)kl_removeAllAlertControllerAnimated:(BOOL)animated
                                 completion:(nullable void (^)(void))completion {
     
-    [self.pendingStack removeAllObjects];
-    [self.alertedStack removeAllObjects];
+    [self.popUpStack removeAllObjects];
     
     if (self.presentedViewController) {
-        // 保证在调用kl_dismissPopUpViewController时，alertedStack里存在self.presentedViewController
-        [self.alertedStack addObject:(KLPopUpViewController *)self.presentedViewController];
         [self kl_dismissPopUpViewController:(KLPopUpViewController *)self.presentedViewController animated:animated completion:completion];
     } else {
         [self clearUpResource];
@@ -214,79 +190,64 @@
 }
 
 - (void)clearUpResource {
-    [self.pendingStack removeAllObjects];
-    [self.alertedStack removeAllObjects];
+    [self.popUpStack removeAllObjects];
     self.window.rootViewController = nil;
     self.window.hidden = YES;
     [[KLAlertSingleton sharedInstance] destoryKLAlertSingleton];
 }
 
 #pragma mark - Private.
-#warning - 确认
-// 检查并弹出之前将要跳转的alertController
+- (BOOL)hasPendingPopUpController {
+    
+    //TODO：需要判断是否包含
+#warning - ???
+//    if ([self.popUpStack containsObject:self.presentingViewController]) {
+//
+//    }
+    
+    if (self.popUpStack.count == 0) return NO;
+    
+    KLPopUpControllerModel *lastModel = self.popUpStack.lastObject;
+    return ([lastModel.popUpController isEqual:self.presentedViewController] == NO);
+}
+
+// 检查并弹出之前未成功跳转的alertController
 - (void)checkToPresentPendingPopUpController {
     
-//    if (self.pendingStack.count == 0) return;
-//
-//    __weak typeof(self) weakSelf = self;
-//    KLPendingPopUpModel *pendingPopUpModel = self.pendingStack.firstObject;
-//    [self kl_presentPopUpViewController:pendingPopUpModel.popController animated:pendingPopUpModel.animated completion:^{
-//        [weakSelf.pendingStack removeObject:pendingPopUpModel];
-//
-//        if (pendingPopUpModel.completion) pendingPopUpModel.completion();
-//    }];
-    
-    if (self.popUpStack.count == 0) return;
-    if (self.presentedViewController == nil) return;
-    
-    KLPendingPopUpModel *lastModel = self.popUpStack.lastObject;
-    
-    if ([self.presentedViewController isEqual:lastModel] == NO) {
-        
-        [self kl_presentPopUpViewController:lastModel.popController animated:lastModel.animated completion:lastModel.completion];
+    if ([self hasPendingPopUpController]) {
+        KLPopUpControllerModel *lastModel = self.popUpStack.lastObject;
+        [self kl_presentPopUpViewController:lastModel.popUpController animated:lastModel.animated completion:lastModel.completion];
     }
 }
 
-// 检查并弹出栈中的alertController
+// 检查并弹出栈中暂时隐藏的alertController
 - (void)checkToPresentStackedPopUpController {
     
-    if (self.alertedStack.count == 0) return;
+    if (self.popUpStack.count == 0) return;
     
-    KLPopUpViewController *previousVc = self.alertedStack.lastObject;
-    [self.alertedStack removeLastObject];
-    // 注意：这里的completon不能再回调回去了，否则会重复，因为第一次弹出的时候已经回调过一次了
-    // 优化：这个animated不应该写死，最好在alertedStack里也存储KLPopUpModel
-    [self kl_presentPopUpViewController:previousVc animated:YES completion:nil];
+    KLPopUpControllerModel *previousPopUpModel = self.popUpStack.lastObject;
+    [self.popUpStack removeLastObject];
+
+    [self kl_presentPopUpViewController:previousPopUpModel.popUpController animated:previousPopUpModel.animated completion:previousPopUpModel.completion];
 }
 
-/*
-- (void)removeFromStackAndPendingWith:(KLPopUpViewController *)popUpViewController {
-    
-    [self.alertedStack removeObject:popUpViewController];
-    
-    [self.pendingStack enumerateObjectsUsingBlock:^(KLPendingPopUpModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj.popController isEqual:popUpViewController]) {
-            [self.pendingStack removeObject:obj];
+- (void)removeFromStackWithController:(KLPopUpViewController *)popUpViewController {
+    [self.popUpStack enumerateObjectsUsingBlock:^(KLPopUpControllerModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.popUpController isEqual:popUpViewController]) {
+            [self.popUpStack removeObject:obj];
         }
     }];
 }
-
-- (void)addToStackWith:(KLPopUpViewController *)popUpViewController {
-    
-    if ([self.alertedStack containsObject:popUpViewController]) {
-        [self.alertedStack removeObject:popUpViewController];
+ 
+- (void)addToStackWithModel:(KLPopUpControllerModel *)popUpModel {
+    if ([self.popUpStack containsObject:popUpModel]) {
+        [self.popUpStack removeObject:popUpModel];
     }
+    [self.popUpStack addObject:popUpModel];
     
-    NSInteger inserIndex = NSNotFound; // 必须小于等于 self.alertStack.count
-    inserIndex = [self recursiveFindWithArray:self.alertedStack targetController:popUpViewController];
-    if (inserIndex != NSNotFound) {
-        inserIndex = MIN(inserIndex, self.alertedStack.count);
-    }
-    [self.alertedStack insertObject:popUpViewController atIndex:inserIndex];
-    
-    
-    [self.pendingStack sortUsingComparator:^NSComparisonResult(KLPendingPopUpModel *obj1, KLPendingPopUpModel *obj2) {
-        if (obj1.popController.showPriority >= obj2.popController.showPriority) {
+    // 升序排序
+    [self.popUpStack sortUsingComparator:^NSComparisonResult(KLPopUpControllerModel *obj1, KLPopUpControllerModel *obj2) {
+        if (obj2.popUpController.showPriority >= obj1.popUpController.showPriority) {
             return NSOrderedAscending;
         } else {
             return NSOrderedDescending;
@@ -294,102 +255,18 @@
     }];
 }
 
-/// 二分法查找下标。subarrayWithRange(a, b): a <= x < (a+b)，x为下标
-- (NSInteger)recursiveFindWithArray:(NSArray *)array targetController:(KLPopUpViewController *)targetController {
-    
-    if (array.count == 0) {
-        return 0;
-    } else if (array.count == 1) {
-        return [self findIndexWithOneElementArray:array targetController:targetController];
-    }
-    
-    NSInteger middleIndex = array.count/2;
-    KLPopUpViewController *middleController = array[middleIndex];
-    
-    if (targetController.showPriority < middleController.showPriority) {
-        NSArray *a = [array subarrayWithRange:NSMakeRange(0, middleIndex)];
-        if (a.count == 1) {
-            return [self findIndexWithOneElementArray:a targetController:targetController];
-        } else {
-            return [self recursiveFindWithArray:a targetController:targetController];
-        }
-    } else if (targetController.showPriority >= middleController.showPriority) {
-        NSArray *b = [array subarrayWithRange:NSMakeRange(middleIndex, array.count-middleIndex)];
-        if (b.count == 1) {
-            return [self findIndexWithOneElementArray:b targetController:targetController];
-        } else {
-            return [self recursiveFindWithArray:b targetController:targetController];
-        }
-    }
-    
-    return NSNotFound;
-}
-
-- (NSInteger)findIndexWithOneElementArray:(NSArray *)array targetController:(KLPopUpViewController *)targetController {
-    
-    NSInteger inserIndex = NSNotFound;
-
-    KLPopUpViewController *controller = array.firstObject;
-    NSInteger originalIndex = [self.alertedStack indexOfObject:controller];
-    
-    if (targetController.showPriority < controller.showPriority) {
-        inserIndex = originalIndex;
-    } else {
-        inserIndex = originalIndex + 1;
-    }
-    
-    return inserIndex;
-}
-
-- (void)addToPendingWith:(KLPendingPopUpModel *)popUpModel {
-    if ([self.pendingStack containsObject:popUpModel]) {
-        [self.pendingStack removeObject:popUpModel];
-    }
-    [self.pendingStack addObject:popUpModel];
-}
-*/
-
-- (KLPendingPopUpModel *)createModelWith:(KLPopUpViewController *)popUpController
+- (KLPopUpControllerModel *)createModelWith:(KLPopUpViewController *)popUpController
                                 animated:(BOOL)animated
                               completion:(nullable void(^)(void))completion {
-    KLPendingPopUpModel *model = [[KLPendingPopUpModel alloc] init];
-    model.popController = popUpController;
+    KLPopUpControllerModel *model = [[KLPopUpControllerModel alloc] init];
+    model.popUpController = popUpController;
     model.animated = animated;
     model.completion = completion;
     return model;
 }
- 
-- (void)addToStackWith:(KLPendingPopUpModel *)popUpModel {
-    if ([self.alertedStack containsObject:popUpModel]) {
-        [self.alertedStack removeObject:popUpModel];
-    }
-    [self.alertedStack addObject:popUpModel];
-    
-    // 升序排序
-    [self.alertedStack sortUsingComparator:^NSComparisonResult(KLPendingPopUpModel *obj1, KLPendingPopUpModel *obj2) {
-        if (obj2.popController.showPriority >= obj1.popController.showPriority) {
-            return NSOrderedAscending;
-        } else {
-            return NSOrderedDescending;
-        }
-    }];
-}
-
-- (void)logStack {
-    NSLog(@">>> stack: %@", self.alertedStack);
-}
-
-- (void)logPending {
-    NSLog(@">>> pending: %@\n\n", self.pendingStack);
-}
-
-- (void)log {
-    [self logStack];
-    [self logPending];
-}
 
 - (void)dealloc {
-    self.window = nil;
+    _window = nil;
     NSLog(@"KLAlertPresentingViewController dealloc");
 }
 
@@ -400,7 +277,7 @@
 @end
 
 
-@implementation KLPendingPopUpModel
+@implementation KLPopUpControllerModel
 
 - (BOOL)isEqual:(id)object {
     
@@ -412,8 +289,8 @@
         return YES;
     }
     
-    KLPendingPopUpModel *popUpModel = (KLPendingPopUpModel *)object;
-    return [popUpModel.popController isEqual:self.popController];
+    KLPopUpControllerModel *popUpModel = (KLPopUpControllerModel *)object;
+    return [popUpModel.popUpController isEqual:self.popUpController];
 }
 
 @end

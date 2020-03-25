@@ -35,8 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@interface KLPendingPopUpModel : NSObject
-@property (nonatomic, strong) KLPopUpViewController *popController;
+@interface KLPopUpControllerModel : NSObject
+@property (nonatomic, strong) KLPopUpViewController *popUpController;
 @property (nonatomic, assign) BOOL animated;
 @property (nonatomic, strong, nullable) void(^completion)(void);
 @end
