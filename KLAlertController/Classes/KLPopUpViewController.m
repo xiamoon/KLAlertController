@@ -206,16 +206,13 @@
                  completion:(nullable void (^)(void))completionHandler {
     dispatch_main_async_safe(^{
         KLAlertPresentingViewController *presentingVc = [[KLAlertSingleton sharedInstance] KLAlertPresentViewController];
-        [presentingVc kl_popUpViewControllerWillDismiss:self];
-        
-        [self dismissViewControllerAnimated:animated completion:^{
-            if (self.dismissCompletion) {
-                self.dismissCompletion();
-            }
-            [presentingVc kl_popUpViewControllerDidDismiss];
-            
+        [presentingVc kl_dismissPopUpViewController:self animated:animated completion:^{
             if (completionHandler) {
                 completionHandler();
+            }
+            
+            if (self.dismissCompletion) {
+                self.dismissCompletion();
             }
         }];
     });
@@ -282,15 +279,17 @@
 }
 
 - (BOOL)isEqual:(id)object {
-    if ([object isKindOfClass:[self class]]) {
-        KLPopUpViewController *popUpViewController = (KLPopUpViewController *)object;
-        return [self.identifier isEqualToString:popUpViewController.identifier];
+    
+    if (!object || ![object isKindOfClass:[self class]]) {
+        return NO;
     }
-    return NO;
-}
-
-- (NSUInteger)hash {
-    return self.identifier.hash;
+    
+    if (object == self) {
+        return YES;
+    }
+    
+    KLPopUpViewController *popUpViewController = (KLPopUpViewController *)object;
+    return [popUpViewController.identifier isEqualToString:self.identifier];
 }
 
 - (void)dealloc {
@@ -311,13 +310,13 @@
                                       animated:(BOOL)animated
                                     completion:(nullable void (^)(void))completion {
     KLAlertPresentingViewController *presentingVc = [[KLAlertSingleton sharedInstance] KLAlertPresentViewController];
-    [presentingVc kl_removeAlertConrollerWithIdentifier:identifier animated:animated completion:completion];
+    [presentingVc kl_removeAlertControllerWithIdentifier:identifier animated:animated completion:completion];
 }
 
 - (void)removeAllKLAlertConrollerAnimated:(BOOL)animated
                                 completion:(nullable void (^)(void))completion {
     KLAlertPresentingViewController *presentingVc = [[KLAlertSingleton sharedInstance] KLAlertPresentViewController];
-    [presentingVc kl_removeAllAlertConrollerAnimated:animated completion:completion];
+    [presentingVc kl_removeAllAlertControllerAnimated:animated completion:completion];
 }
 
 @end

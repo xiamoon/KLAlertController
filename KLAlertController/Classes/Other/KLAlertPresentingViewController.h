@@ -13,22 +13,24 @@ NS_ASSUME_NONNULL_BEGIN
 @class KLPopUpViewController;
 @interface KLAlertPresentingViewController : UIViewController
 
+/// 统一present方法
 - (void)kl_presentPopUpViewController:(KLPopUpViewController *)viewControllerToPresent
                           animated:(BOOL)flag
-                        completion:(void (^)(void))completion;
+                        completion:(nullable void (^)(void))completion;
+
+/// 统一dismiss方法
+- (void)kl_dismissPopUpViewController:(KLPopUpViewController *)viewControllerToDismiss
+                             animated:(BOOL)flag
+                           completion:(nullable void(^)(void))completion;
 
 - (BOOL)kl_isAlertControllerCurrentShowed;
 
-- (void)kl_removeAlertConrollerWithIdentifier:(NSString *)identifier
+- (void)kl_removeAlertControllerWithIdentifier:(NSString *)identifier
                                      animated:(BOOL)animated
                                 completion:(nullable void (^)(void))completion;
 
-- (void)kl_removeAllAlertConrollerAnimated:(BOOL)animated
+- (void)kl_removeAllAlertControllerAnimated:(BOOL)animated
                                 completion:(nullable void (^)(void))completion;
-
-#pragma mark - 通知
-- (void)kl_popUpViewControllerWillDismiss:(KLPopUpViewController *)popUpViewController;
-- (void)kl_popUpViewControllerDidDismiss;
 
 @end
 
