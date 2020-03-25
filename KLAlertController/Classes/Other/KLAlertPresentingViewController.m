@@ -69,11 +69,8 @@
     }
     
     if (self.isAnimating) { // 如果正在进行跳转或消失的动画，则移入pending中
-        KLPendingPopUpModel *model = [[KLPendingPopUpModel alloc] init];
-        model.popController = viewControllerToPresent;
-        model.animated = flag;
-        model.completion = completion;
-        [self addToPendingWith:model];
+        KLPendingPopUpModel *model = [self createModelWith:viewControllerToPresent animated:flag completion:completion];
+        [self addToStackWith:model];
         return;
     }
     
@@ -108,7 +105,9 @@
     } else { // 当前没有正在显示的alert
         
         self.isPresenting = YES;
-        [self addToStackWith:viewControllerToPresent];
+        
+        KLPendingPopUpModel *model = [self createModelWith:viewControllerToPresent animated:flag completion:completion];
+        [self addToStackWith:model];
         
         [self presentViewController:viewControllerToPresent animated:flag completion:^{
             
@@ -227,15 +226,25 @@
 // 检查并弹出之前将要跳转的alertController
 - (void)checkToPresentPendingPopUpController {
     
-    if (self.pendingStack.count == 0) return;
+//    if (self.pendingStack.count == 0) return;
+//
+//    __weak typeof(self) weakSelf = self;
+//    KLPendingPopUpModel *pendingPopUpModel = self.pendingStack.firstObject;
+//    [self kl_presentPopUpViewController:pendingPopUpModel.popController animated:pendingPopUpModel.animated completion:^{
+//        [weakSelf.pendingStack removeObject:pendingPopUpModel];
+//
+//        if (pendingPopUpModel.completion) pendingPopUpModel.completion();
+//    }];
     
-    __weak typeof(self) weakSelf = self;
-    KLPendingPopUpModel *pendingPopUpModel = self.pendingStack.firstObject;
-    [self kl_presentPopUpViewController:pendingPopUpModel.popController animated:pendingPopUpModel.animated completion:^{
-        [weakSelf.pendingStack removeObject:pendingPopUpModel];
+    if (self.popUpStack.count == 0) return;
+    if (self.presentedViewController == nil) return;
+    
+    KLPendingPopUpModel *lastModel = self.popUpStack.lastObject;
+    
+    if ([self.presentedViewController isEqual:lastModel] == NO) {
         
-        if (pendingPopUpModel.completion) pendingPopUpModel.completion();
-    }];
+        [self kl_presentPopUpViewController:lastModel.popController animated:lastModel.animated completion:lastModel.completion];
+    }
 }
 
 // 检查并弹出栈中的alertController
@@ -250,6 +259,7 @@
     [self kl_presentPopUpViewController:previousVc animated:YES completion:nil];
 }
 
+/*
 - (void)removeFromStackAndPendingWith:(KLPopUpViewController *)popUpViewController {
     
     [self.alertedStack removeObject:popUpViewController];
@@ -337,9 +347,32 @@
     }
     [self.pendingStack addObject:popUpModel];
 }
+*/
 
+- (KLPendingPopUpModel *)createModelWith:(KLPopUpViewController *)popUpController
+                                animated:(BOOL)animated
+                              completion:(nullable void(^)(void))completion {
+    KLPendingPopUpModel *model = [[KLPendingPopUpModel alloc] init];
+    model.popController = popUpController;
+    model.animated = animated;
+    model.completion = completion;
+    return model;
+}
+ 
 - (void)addToStackWith:(KLPendingPopUpModel *)popUpModel {
+    if ([self.alertedStack containsObject:popUpModel]) {
+        [self.alertedStack removeObject:popUpModel];
+    }
+    [self.alertedStack addObject:popUpModel];
     
+    // 升序排序
+    [self.alertedStack sortUsingComparator:^NSComparisonResult(KLPendingPopUpModel *obj1, KLPendingPopUpModel *obj2) {
+        if (obj2.popController.showPriority >= obj1.popController.showPriority) {
+            return NSOrderedAscending;
+        } else {
+            return NSOrderedDescending;
+        }
+    }];
 }
 
 - (void)logStack {
@@ -380,7 +413,7 @@
     }
     
     KLPendingPopUpModel *popUpModel = (KLPendingPopUpModel *)object;
-    return [popUpModel.popController.identifier isEqualToString:self.popController.identifier];
+    return [popUpModel.popController isEqual:self.popController];
 }
 
 @end
