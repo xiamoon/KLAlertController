@@ -13,6 +13,19 @@
 NS_ASSUME_NONNULL_BEGIN
 
 NS_CLASS_AVAILABLE_IOS(7_0)
+
+//   -----------------------
+//  |        ---------      |
+//  |       |  title  |     |
+//  |       |         |     |  <---- headerView
+//  |       | message |     |
+//  |        ---------      |
+//   -----------------------
+//  |         button1       |
+//   -----------------------   <---- actionGroupView
+//  |         button2       |
+//   -----------------------
+
 @interface KLAlertController : KLPopUpViewController
 
 - (instancetype)init NS_UNAVAILABLE;

@@ -38,17 +38,22 @@
 }
 
 + (instancetype)alertControllerWithContentView:(UIView *)view preferredStyle:(UIAlertControllerStyle)preferredStyle {
+    
     KLAlertController *alertVc = [[KLAlertController alloc] initInternalWithPreferredStyle:preferredStyle];
     [alertVc addContentView:view];
+    
     return alertVc;
 }
 
+/// 如果用KLAlertController调用addContentView，则add的是headerView
 - (void)addContentView:(UIView *)view {
     self.headerView = [[KLAlertCustomizeHeaderView alloc] initWithCustomizeView:view];
 }
 
 - (void)viewDidLoad {
     BOOL needLayout = [self.actionGroupView layoutActions];
+    
+    // 由headerView 和 actionGroupView共同组成整个ContentView
     [self.alertContentView insertHeaderView:self.headerView];
     [self.alertContentView insertActionGroupView:needLayout ? self.actionGroupView : nil];
     
