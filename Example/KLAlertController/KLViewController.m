@@ -22,7 +22,7 @@
 }
 
 - (IBAction)testAlert:(id)sender {
-    [self test2];
+    [self test0];
 }
 
 - (void)test0 {
@@ -38,7 +38,6 @@
     KLAlertController *alert2 = [KLAlertController alertControllerWithTitle:@"你好2" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
     alert2.showPriority = 600;
     [alert2 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
-    [alert2 kl_show];
     [alert2 kl_show];
 }
 
@@ -70,14 +69,15 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         KLAlertController *alert1 = [KLAlertController alertControllerWithTitle:@"你好1" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
+        alert1.showPriority = 1000;
         [alert1 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
         [alert1 kl_show];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
             [alert1 kl_dismiss];
 //        [alert0 kl_dismiss];
-        });
+//        });
     });
 }
 

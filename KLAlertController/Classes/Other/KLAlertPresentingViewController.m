@@ -73,7 +73,6 @@
         if ([viewControllerToPresent isEqual:presentedViewController]) {
             
             if (completion) completion();
-            
             [self checkToPresentPendingPopUpController];
             return;
         }
@@ -118,14 +117,20 @@
         return;
     }
     
-    [self removeFromStackWithController:viewControllerToDismiss];
-
-    if (self.isAnimating) { // self.presentedViewController正在被present或dismiss
-        if (completion) completion();
-        return;
+    BOOL isDismissCurrentShowedVc = [viewControllerToDismiss isEqual:self.presentedViewController];
+    
+    if (self.isAnimating) { // 当前的self.presentedViewController正在present或者dismiss
+        if (isDismissCurrentShowedVc == NO ||
+            (isDismissCurrentShowedVc && self.isDismissing)) {
+            [self removeFromStackWithController:viewControllerToDismiss];
+            if (completion) completion();
+            return;
+        }
     }
     
-    if ([viewControllerToDismiss isEqual:self.presentedViewController]) {
+    [self removeFromStackWithController:viewControllerToDismiss];
+    
+    if (isDismissCurrentShowedVc) {
         [self _kl_dismissPopUpViewController:viewControllerToDismiss animated:flag completion:completion];
     }
 }
@@ -191,6 +196,7 @@
 
 - (void)clearUpResource {
     [self.popUpStack removeAllObjects];
+    self.popUpStack = nil;
     self.window.rootViewController = nil;
     self.window.hidden = YES;
     [[KLAlertSingleton sharedInstance] destoryKLAlertSingleton];
@@ -198,13 +204,7 @@
 
 #pragma mark - Private.
 - (BOOL)hasPendingPopUpController {
-    
-    //TODO：需要判断是否包含
-#warning - ???
-//    if ([self.popUpStack containsObject:self.presentingViewController]) {
-//
-//    }
-    
+
     if (self.popUpStack.count == 0) return NO;
     
     KLPopUpControllerModel *lastModel = self.popUpStack.lastObject;
