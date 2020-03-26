@@ -54,6 +54,12 @@
                           animated:(BOOL)flag
                         completion:(void (^)(void))completion {
     
+    if (viewControllerToPresent == nil) {
+        if (completion) completion();
+        [self checkToPresentNextPopUpController];
+        return;
+    }
+    
     __weak typeof(self) weakSelf = self;
     if (self.window.isHidden == YES) {
         self.window.rootViewController = weakSelf;
@@ -73,7 +79,7 @@
         if ([viewControllerToPresent isEqual:presentedViewController]) {
             
             if (completion) completion();
-            [self checkToPresentPendingPopUpController];
+            [self checkToPresentNextPopUpController];
             return;
         }
         
@@ -87,7 +93,7 @@
         } else {
 
             if (completion) completion();
-            [self checkToPresentPendingPopUpController];
+            [self checkToPresentNextPopUpController];
         }
         
     } else { // 当前没有正在显示的alert
@@ -102,7 +108,7 @@
             self.isPresenting = NO;
             
             if (completion) completion();
-            [self checkToPresentPendingPopUpController];
+            [self checkToPresentNextPopUpController];
         }];
     }
 }
@@ -111,26 +117,20 @@
                              animated:(BOOL)flag
                            completion:(nullable void(^)(void))completion {
     
-    // 确保相同的vc不会同时被调用系统的dismiss方法多次
     if (!viewControllerToDismiss) {
         if (completion) completion();
         return;
     }
     
-    BOOL isDismissCurrentShowedVc = [viewControllerToDismiss isEqual:self.presentedViewController];
-    
+    [self removeFromStackWithController:viewControllerToDismiss];
+
+    // 确保相同的vc不会同时被调用系统的dismiss方法多次
     if (self.isAnimating) { // 当前的self.presentedViewController正在present或者dismiss
-        if (isDismissCurrentShowedVc == NO ||
-            (isDismissCurrentShowedVc && self.isDismissing)) {
-            [self removeFromStackWithController:viewControllerToDismiss];
-            if (completion) completion();
-            return;
-        }
+        if (completion) completion();
+        return;
     }
     
-    [self removeFromStackWithController:viewControllerToDismiss];
-    
-    if (isDismissCurrentShowedVc) {
+    if ([viewControllerToDismiss isEqual:self.presentedViewController]) {
         [self _kl_dismissPopUpViewController:viewControllerToDismiss animated:flag completion:completion];
     }
 }
@@ -146,15 +146,7 @@
         
         if (completion) completion();
         
-        if (self.popUpStack.count == 0) {
-            [self clearUpResource];
-        } else {
-            if ([self hasPendingPopUpController]) {
-                [self checkToPresentPendingPopUpController];
-            } else {
-                [self checkToPresentStackedPopUpController];
-            }
-        }
+        [self checkToPresentNextPopUpController];
     }];
 }
 
@@ -203,32 +195,24 @@
 }
 
 #pragma mark - Private.
-- (BOOL)hasPendingPopUpController {
-
-    if (self.popUpStack.count == 0) return NO;
+// 检查是否还有下一个popUpController可以弹出
+- (void)checkToPresentNextPopUpController {
+    
+    if (self.popUpStack.count == 0) {
+        [self kl_removeAllAlertControllerAnimated:NO completion:nil];
+        return;
+    }
     
     KLPopUpControllerModel *lastModel = self.popUpStack.lastObject;
-    return ([lastModel.popUpController isEqual:self.presentedViewController] == NO);
-}
 
-// 检查并弹出之前未成功跳转的alertController
-- (void)checkToPresentPendingPopUpController {
-    
-    if ([self hasPendingPopUpController]) {
-        KLPopUpControllerModel *lastModel = self.popUpStack.lastObject;
+    if (self.presentedViewController) {
+        if ([self.presentedViewController isEqual:lastModel.popUpController] == NO) {
+            
+            [self kl_presentPopUpViewController:lastModel.popUpController animated:lastModel.animated completion:lastModel.completion];
+        }
+    } else {
         [self kl_presentPopUpViewController:lastModel.popUpController animated:lastModel.animated completion:lastModel.completion];
     }
-}
-
-// 检查并弹出栈中暂时隐藏的alertController
-- (void)checkToPresentStackedPopUpController {
-    
-    if (self.popUpStack.count == 0) return;
-    
-    KLPopUpControllerModel *previousPopUpModel = self.popUpStack.lastObject;
-    [self.popUpStack removeLastObject];
-
-    [self kl_presentPopUpViewController:previousPopUpModel.popUpController animated:previousPopUpModel.animated completion:previousPopUpModel.completion];
 }
 
 - (void)removeFromStackWithController:(KLPopUpViewController *)popUpViewController {
