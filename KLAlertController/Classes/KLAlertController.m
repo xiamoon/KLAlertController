@@ -45,7 +45,6 @@
     return alertVc;
 }
 
-/// 如果用KLAlertController调用addContentView，则add的是headerView
 - (void)addContentView:(UIView *)view {
     self.headerView = [[KLAlertCustomizeHeaderView alloc] initWithCustomizeView:view];
 }
@@ -82,19 +81,19 @@
     self = [[[self class] alloc] initInternalWithPreferredStyle:preferredStyle];
     if (self) {
         CGFloat defaultContentWidth = 0;
-        KLAlertHeaderView *header = nil;
+        KLAlertHeaderView *headerView = nil;
         
         if (preferredStyle == UIAlertControllerStyleAlert) {
-            header = [[KLAlertHeaderView alloc] initWithTitle:title message:message];
+            headerView = [[KLAlertHeaderView alloc] initWithTitle:title message:message];
             defaultContentWidth = 270.0;
         }else if (preferredStyle == UIAlertControllerStyleActionSheet) {
-            header = [[KLSheetHeaderView alloc] initWithTitle:title message:message];
+            headerView = [[KLSheetHeaderView alloc] initWithTitle:title message:message];
             CGSize screenSize = [UIScreen mainScreen].bounds.size;
             CGFloat minWidth = MIN(screenSize.width, screenSize.height);
             defaultContentWidth = minWidth-8-8;
         }
         [self setContentWidth:defaultContentWidth];
-        self.headerView = header;
+        self.headerView = headerView;
     }
     return self;
 }
@@ -121,6 +120,7 @@
     return self;
 }
 
+// 横竖屏切换时，宽度保持不变，高度改变
 - (void)deviceOrientationWillChangeWithContentMaximumHeight:(CGFloat)contentMaximumHeight
                                                    duration:(NSTimeInterval)duration {
     CGFloat newContentMaximumHeight = contentMaximumHeight;

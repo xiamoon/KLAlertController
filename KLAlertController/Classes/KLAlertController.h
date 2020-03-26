@@ -14,17 +14,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 NS_CLASS_AVAILABLE_IOS(7_0)
 
-//   -----------------------
-//  |        ---------      |
-//  |       |  title  |     |
-//  |       |         |     |  <---- headerView
-//  |       | message |     |
-//  |        ---------      |
-//   -----------------------
-//  |         button1       |
-//   -----------------------   <---- actionGroupView
-//  |         button2       |
-//   -----------------------
+//     -----------------------
+//    |        ---------      |
+//    |       |  title  |     |
+//    |       |         |     |  <---- headerView       <-----|
+//    |       | message |     |                               |
+//    |        ---------      |                               | <---- contentView <-- KLPopUpViewController
+//     -----------------------                                |
+//    |         button1       |                               |
+//    |-----------------------|  <---- actionGroupView  <-----|
+//    |         button2       |
+//     -----------------------
 
 @interface KLAlertController : KLPopUpViewController
 
@@ -45,8 +45,7 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 /**
  添加一个自定义内容头视图
  
- @warning 对于KLAlertController来说，这个view将作为headerView取代由title和message生成的KLAlertHeaderView
- @warning 对于KLPopUpViewController来说，这个view即为整个contentView
+ @warning 对于KLAlertController来说，这个contentView其实就是headerView
  */
 + (instancetype)alertControllerWithContentView:(nullable UIView *)view
                                 preferredStyle:(UIAlertControllerStyle)preferredStyle;
@@ -68,13 +67,13 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 //  |        ---------      |
 //   -----------------------
 
-//! title所在文本区域离四周的距离
+//! title和message整体所在区域离四周的距离
 //! alert默认为 (20, 16, 20, 16)。当只有title或message时，上下距离分别为insets.top和insets.top，与系统一致
 //! sheet默认为 (14.5, 16, 25, 16)。当只有title时，上下距离分别为insets.top和insets.top；
 //! 当只有message时，上下距离分别为insets.bottom和insets.bottom，与系统一致
 @property (nonatomic, assign) UIEdgeInsets titleMessageAreaContentInsets;
 
-//! title和message竖直方向的间距
+//! title与message竖直方向的间距
 //! alert默认为 2，与系统一致
 //! sheet默认为 12，与系统一致
 @property (nonatomic, assign) CGFloat titleMessageVerticalSpacing;
