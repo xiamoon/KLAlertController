@@ -157,7 +157,6 @@
 }
 
 - (void)setSheetContentMarginBottom:(CGFloat)sheetContentMarginBottom {
-    _sheetContentMarginBottom = sheetContentMarginBottom;
     [super setSheetContentMarginBottom:sheetContentMarginBottom];
 }
 
@@ -301,12 +300,7 @@
 }
 
 - (CGFloat)sheetContentMarginBottom {
-    CGFloat safePaddingBottom = 0;
-    if (@available(iOS 11.0, *)) {
-        UIEdgeInsets safeInsets = [UIApplication sharedApplication].keyWindow.safeAreaInsets;
-        safePaddingBottom = safeInsets.bottom;
-    }
-    return _sheetContentMarginBottom+safePaddingBottom;
+    return [super sheetContentMarginBottom];
 }
 
 @end

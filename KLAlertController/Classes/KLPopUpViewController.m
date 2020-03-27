@@ -32,6 +32,7 @@
         self.maskType = KLPopUpControllerMaskTypeDefault;
         self.maskBackgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
         self.showPriority = KLPopUpControllerPriorityDefault;
+        self.shouldAutoAddBottomSafePaddingForActionSheet = YES;
         
         self.preferredStyle = preferredStyle;
         [self addContentView:contentView];
@@ -231,6 +232,10 @@
 }
 
 - (CGFloat)sheetContentMarginBottom {
+    if (self.shouldAutoAddBottomSafePaddingForActionSheet == NO) {
+        return _sheetContentMarginBottom;
+    }
+    
     CGFloat safePaddingBottom = 0;
     if (@available(iOS 11.0, *)) {
         UIEdgeInsets safeInsets = [UIApplication sharedApplication].keyWindow.safeAreaInsets;

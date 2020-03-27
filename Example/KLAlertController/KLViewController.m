@@ -23,7 +23,7 @@
 }
 
 - (IBAction)testAlert:(id)sender {
-    [self test5];
+    [self test1];
 }
 
 - (void)test0 {
@@ -117,13 +117,16 @@
         make.size.mas_equalTo(CGSizeMake(200, 500));
     }];
     
-//    KLAlertController *alert = [KLAlertController alertControllerWithContentView:view preferredStyle:UIAlertControllerStyleAlert];
-//    alert.shouldRespondsMaskViewTouch = YES;
-////    alert.contentMaximumHeightForLandscape = 300;
-//    alert.cornerRadius = 0;
-//    alert.contentMaximumHeightForPortrait = 300;
-//    [alert addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
-//    [alert kl_show];
+    KLAlertController *alert = [KLAlertController alertControllerWithContentView:view preferredStyle:UIAlertControllerStyleActionSheet];
+    alert.shouldRespondsMaskViewTouch = YES;
+//    alert.contentMaximumHeightForLandscape = 300;
+    alert.contentMaximumHeightForPortrait = 300;
+    alert.cornerRadius = 0;
+
+    alert.shouldRespondsMaskViewTouch = YES;
+
+    [alert addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+    [alert kl_show];
     
     
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -132,7 +135,7 @@
 //    });
 
 
-    KLPopUpViewController *popUp = [KLPopUpViewController alertControllerWithContentView:view preferredStyle:UIAlertControllerStyleAlert];
+    KLPopUpViewController *popUp = [KLPopUpViewController alertControllerWithContentView:view preferredStyle:UIAlertControllerStyleActionSheet];
 //    popUp.contentMaximumHeightForLandscape = 300;
 //    popUp.contentMaximumHeightForPortrait = 300;
     popUp.shouldRespondsMaskViewTouch = YES;

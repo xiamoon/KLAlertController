@@ -76,6 +76,9 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 //! actionSheet整体内容距离屏幕底部距离，默认为0。注意：刘海屏会自动再加上底部安全区域高度
 @property (nonatomic, assign) CGFloat sheetContentMarginBottom;
 
+//! 是否自动为actionSheet添加底部安全距离，默认为为YES。
+@property (nonatomic, assign) BOOL shouldAutoAddBottomSafePaddingForActionSheet;
+
 //! maskView是否可以响应dismiss手势。默认alert不响应，sheet响应
 @property (nonatomic, assign) BOOL shouldRespondsMaskViewTouch;
 
