@@ -117,14 +117,26 @@
         make.size.mas_equalTo(CGSizeMake(200, 500));
     }];
     
-    KLAlertController *alert = [KLAlertController alertControllerWithContentView:view preferredStyle:UIAlertControllerStyleAlert];
-    alert.shouldRespondsMaskViewTouch = YES;
-    [alert addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
-    [alert kl_show];
+//    KLAlertController *alert = [KLAlertController alertControllerWithContentView:view preferredStyle:UIAlertControllerStyleAlert];
+//    alert.shouldRespondsMaskViewTouch = YES;
+////    alert.contentMaximumHeightForLandscape = 300;
+//    alert.cornerRadius = 0;
+//    alert.contentMaximumHeightForPortrait = 300;
+//    [alert addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+//    [alert kl_show];
     
-//    KLPopUpViewController *popUp = [KLPopUpViewController alertControllerWithContentView:view preferredStyle:UIAlertControllerStyleAlert];
-//    popUp.shouldRespondsMaskViewTouch = YES;
-//    [popUp kl_show];
+    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [alert contentMaximumHeightForLandscape];
+//        [alert contentMaximumHeightForPortrait];
+//    });
+
+
+    KLPopUpViewController *popUp = [KLPopUpViewController alertControllerWithContentView:view preferredStyle:UIAlertControllerStyleAlert];
+//    popUp.contentMaximumHeightForLandscape = 300;
+//    popUp.contentMaximumHeightForPortrait = 300;
+    popUp.shouldRespondsMaskViewTouch = YES;
+    [popUp kl_show];
 }
 
 

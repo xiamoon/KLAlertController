@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *messageLabel;
 
+@property (nonatomic, assign, readonly) CGFloat contentMaximumHeight;
 @property (nonatomic, strong) KLAlertContentView *alertContentView; //! 整个content
 @property (nonatomic, strong) KLAlertHeaderView *headerView; //! title和message
 @property (nonatomic, strong) KLAlertActionGroupView *actionGroupView; //! 按钮区域
@@ -27,8 +28,9 @@
 
 @implementation KLAlertController
 @synthesize contentWidth = _contentWidth;
+@synthesize contentMaximumHeightForPortrait = _contentMaximumHeightForPortrait;
+@synthesize contentMaximumHeightForLandscape = _contentMaximumHeightForLandscape;
 @synthesize sheetContentMarginBottom = _sheetContentMarginBottom;
-@synthesize cornerRadius = _cornerRadius;
 
 + (instancetype)alertControllerWithTitle:(NSString *)title
                                      message:(NSString *)message
@@ -141,8 +143,22 @@
 }
 
 - (void)setContentWidth:(CGFloat)contentWidth {
-    _contentWidth = contentWidth;
     [super setContentWidth:contentWidth];
+}
+
+- (void)setContentMaximumHeightForPortrait:(CGFloat)contentMaximumHeightForPortrait {
+    [super setContentMaximumHeightForPortrait:contentMaximumHeightForPortrait];
+    self.alertContentView.contentMaximumHeight = self.contentMaximumHeight;
+}
+
+- (void)setContentMaximumHeightForLandscape:(CGFloat)contentMaximumHeightForLandscape {
+    [super setContentMaximumHeightForLandscape:contentMaximumHeightForLandscape];
+    self.alertContentView.contentMaximumHeight = self.contentMaximumHeight;
+}
+
+- (void)setSheetContentMarginBottom:(CGFloat)sheetContentMarginBottom {
+    _sheetContentMarginBottom = sheetContentMarginBottom;
+    [super setSheetContentMarginBottom:sheetContentMarginBottom];
 }
 
 - (void)setTitleMessageAreaContentInsets:(UIEdgeInsets)titleMessageAreaContentInsets {
@@ -160,11 +176,6 @@
     if (self.preferredStyle == UIAlertControllerStyleActionSheet) {
         [self sheetContentView].sheetCancelButtonMarginTop = sheetCancelButtonMarginTop;
     }
-}
-
-- (void)setSheetContentMarginBottom:(CGFloat)sheetContentMarginBottom {
-    _sheetContentMarginBottom = sheetContentMarginBottom;
-    [super setSheetContentMarginBottom:sheetContentMarginBottom];
 }
 
 - (void)setTitleAttributes:(NSDictionary<NSString *,id> *)titleAttributes {
@@ -266,6 +277,27 @@
 
 - (NSArray<KLAlertAction *> *)actions {
     return self.actionGroupView.actions;
+}
+
+- (CGFloat)contentMaximumHeight {
+    if ([UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeLeft ||
+        [UIDevice currentDevice].orientation == UIDeviceOrientationLandscapeRight) {
+        return self.contentMaximumHeightForLandscape;
+    } else {
+        return self.contentMaximumHeightForPortrait;
+    }
+}
+
+- (CGFloat)contentWidth {
+    return [super contentWidth];
+}
+
+- (CGFloat)contentMaximumHeightForPortrait {
+    return [super contentMaximumHeightForPortrait];
+}
+
+- (CGFloat)contentMaximumHeightForLandscape {
+    return [super contentMaximumHeightForLandscape];
 }
 
 - (CGFloat)sheetContentMarginBottom {

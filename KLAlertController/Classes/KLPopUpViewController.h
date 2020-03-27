@@ -65,12 +65,13 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 //! 如果弹出多个弹框时，指定他们的identifier一样，则前面的弹框会被永久性移除，不会再显示。
 @property (nonatomic, strong) NSString *identifier;
 
-//! 中间内容区宽度。默认为0，内部通过contentView的约束计算宽度，如果手动指定宽度将忽略约束计算。
+//! 中间内容区宽度。默认为0，由conteView自身frame或者autoLayout计算的宽度决定，也可以手动指定宽度。
 @property (nonatomic, assign) CGFloat contentWidth;
 
-//! 中间内容区最大高度。默认为ScreenHeight-2*MAX(safeArea.top, safeArea.bottom)，实际高度由内部视图本身的高度决定，当实际高度超过最大高度时，内容可以上下滚动。
-//! 注意：内部实际计算时，如果是sheet还会多减去sheetContentMarginBottom的高度。比如如果指定contentMaximumHeight为屏幕的高度，则弹出sheet时还要减去sheetContentMarginBottom才能使内容完全显示,（这个计算方式跟系统一致）。所以外部指定时，不用考虑sheetContentMarginBottom的高度。
-@property (nonatomic, assign) CGFloat contentMaximumHeight;
+//! 中间内容区最大高度。默认为ScreenHeight-2*MAX(safeArea.top, safeArea.bottom)，实际高度由内部视图本身的高度决定。
+//! 注意：内部实际计算时，如果是sheet还会多减去sheetContentMarginBottom的高度。所以外部指定时，不用考虑sheetContentMarginBottom的高度。
+@property (nonatomic, assign) CGFloat contentMaximumHeightForPortrait;
+@property (nonatomic, assign) CGFloat contentMaximumHeightForLandscape;
 
 //! actionSheet整体内容距离屏幕底部距离，默认为0。注意：刘海屏会自动再加上底部安全区域高度
 @property (nonatomic, assign) CGFloat sheetContentMarginBottom;
