@@ -21,18 +21,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    if (@available(iOS 13.0, *)) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [[UIApplication sharedApplication].keyWindow setOverrideUserInterfaceStyle:UIUserInterfaceStyleLight];
-            [KLPopUpViewController traitCollectionDidChange];
-        });
-    } else {
-        // Fallback on earlier versions
-    }
+//    if (@available(iOS 13.0, *)) {
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [[UIApplication sharedApplication].keyWindow setOverrideUserInterfaceStyle:UIUserInterfaceStyleLight];
+//            [KLPopUpViewController traitCollectionDidChange];
+//        });
+//    } else {
+//        // Fallback on earlier versions
+//    }
 }
 
 - (IBAction)testAlert:(id)sender {
-    [self test1];
+    [self test0];
 }
 
 - (void)test0 {
@@ -46,9 +46,9 @@
         [alert1 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
         [alert1 kl_show];
         
-//        [self removeAllKLAlertConrollerAnimated:YES completion:^{
-//            NSLog(@"remove all");
-//        }];
+        [self removeAllKLAlertConrollerAnimated:YES completion:^{
+            NSLog(@"remove all");
+        }];
     });
     
     KLAlertController *alert2 = [KLAlertController alertControllerWithTitle:@"你好2" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
@@ -91,8 +91,8 @@
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
-//            [alert1 kl_dismiss];
-//            [self removeAllKLAlertConrollerAnimated:YES completion:nil];
+            [alert1 kl_dismiss];
+            [self removeAllKLAlertConrollerAnimated:YES completion:nil];
         });
     });
 }
@@ -151,7 +151,26 @@
     [popUp kl_show];
 }
 
+-(void)test6 {
+    KLAlertController *alert0 = [KLAlertController alertControllerWithTitle:@"你好0" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
+    [alert0 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+//    alert0.presentDelayTimeInterval = 0;
+    alert0.presentTimeInterval = 5.0;
+////
+//    alert0.dismissDelayTimeInterval = 0;
+    alert0.dismissTimeInterval = 1.0;
+    
+    [self presentViewController:alert0 animated:YES completion:^{
+        NSLog(@"show");
+        NSLog(@">> show self.presentedViewController: %@", self.presentedViewController);
 
+    }];
+    
+    [alert0 dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"dismiss");
+        NSLog(@">> dismiss self.presentedViewController: %@", self.presentedViewController);
+    }];
+}
 
 
 

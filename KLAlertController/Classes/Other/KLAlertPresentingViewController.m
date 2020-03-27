@@ -145,17 +145,26 @@
         return;
     }
     
-    [self removeFromStackWithController:viewControllerToDismiss];
-
-    // 确保相同的vc不会同时被调用系统的dismiss方法多次
-    if (self.isAnimating) { // 当前的self.presentedViewController正在present或者dismiss
-        if (completion) completion();
-        return;
-    }
-    
-    if ([viewControllerToDismiss isEqual:self.presentedViewController]) {
-        [self _kl_dismissPopUpViewController:viewControllerToDismiss animated:flag completion:completion];
-    } else {
+    if ([viewControllerToDismiss isEqual:self.presentedViewController]) { // 如果是dismiss当前的
+        if (self.isAnimating) {
+            if (self.isPresenting) {
+                [self _kl_dismissPopUpViewController:viewControllerToDismiss animated:flag completion:^{
+                    
+                    [self removeFromStackWithController:viewControllerToDismiss];
+                    if (completion) completion();
+                }];
+            } else if (self.isDismissing) {
+                if (completion) completion();
+            }
+        } else {
+            [self _kl_dismissPopUpViewController:viewControllerToDismiss animated:flag completion:^{
+                
+                [self removeFromStackWithController:viewControllerToDismiss];
+                if (completion) completion();
+            }];
+        }
+    } else { // 如果不是dismiss当前的，则直接移除
+        [self removeFromStackWithController:viewControllerToDismiss];
         if (completion) completion();
     }
 }
@@ -170,7 +179,6 @@
         self.isDismissing = NO;
         
         if (completion) completion();
-        
         [self checkToPresentNextPopUpController];
     }];
 }
