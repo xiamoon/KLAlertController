@@ -14,32 +14,39 @@
 #import "Masonry.h"
 
 @interface KLPopUpViewController () <UIViewControllerTransitioningDelegate>
-@property (nonatomic, assign) CGFloat contentMaximumHeightInset;
+@property (nonatomic, assign) CGFloat contentTopAndBottomTotalMargin; // 内容区上下离屏幕边缘距离总和
 @property (nonatomic, strong) KLAlertBaseAnimation *animation;
 @property (nonatomic, strong) UIView *contentView;
 @end
 
 @implementation KLPopUpViewController
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+- (instancetype)initWithContentView:(UIView *)contentView
+                     preferredStyle:(UIAlertControllerStyle)preferredStyle {
+    self = [super init];
     if (self) {
         self.modalPresentationStyle = UIModalPresentationOverCurrentContext;
         self.transitioningDelegate = self;
+        
         self.identifier = [NSUUID UUID].UUIDString;
+        self.maskType = KLPopUpControllerMaskTypeDefault;
         self.maskBackgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
         self.showPriority = KLPopUpControllerPriorityDefault;
-        self.maskType = KLPopUpControllerMaskTypeDefault;
+        
+        self.preferredStyle = preferredStyle;
+        [self addContentView:contentView];
     }
     return self;
 }
 
-+ (instancetype)alertControllerWithContentView:(UIView *)view
-                             preferredStyle:(UIAlertControllerStyle)preferredStyle {
-    KLPopUpViewController *popUpController = [[KLPopUpViewController alloc] init];
-    popUpController.preferredStyle = preferredStyle;
-    [popUpController addContentView:view];
-    return popUpController;
++ (instancetype)alertControllerWithContentView:(UIView *)contentView
+                                preferredStyle:(UIAlertControllerStyle)preferredStyle {
+
+    return [[KLPopUpViewController alloc] initWithContentView:contentView preferredStyle:preferredStyle];
+}
+
+- (void)addContentView:(UIView *)view {
+    self.contentView = view;
 }
 
 - (void)viewDidLoad {
@@ -58,6 +65,13 @@
         make.centerX.mas_equalTo(self.view.mas_centerX);
         make.centerY.mas_equalTo(self.view.mas_centerY);
         make.height.mas_lessThanOrEqualTo(contentMaximumHeight);
+        
+        if (CGRectGetWidth(self.contentView.frame) != 0) {
+            make.width.mas_equalTo(CGRectGetWidth(self.contentView.frame)).priorityLow();
+        }
+        if (CGRectGetHeight(self.contentView.frame) != 0) {
+            make.height.mas_equalTo(CGRectGetHeight(self.contentView.frame)).priorityLow();
+        }
     }];
     [self.view layoutIfNeeded];
     self.view.bounds = self.contentView.bounds;
@@ -74,45 +88,47 @@
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     
     [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-        CGFloat safePadding = 0;
-        if (@available(iOS 11.0, *)) {
-            UIEdgeInsets safeInsets = [UIApplication sharedApplication].keyWindow.safeAreaInsets;
-            safePadding = MAX(safeInsets.top, safeInsets.bottom);
-        }else {
-            KLAlertPresentingViewController *presentingVc = [[KLAlertSingleton sharedInstance] KLAlertPresentViewController];
-            safePadding = MAX(presentingVc.topLayoutGuide.length, presentingVc.bottomLayoutGuide.length);
-        }
-        if (safePadding == 0) {
-            safePadding = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame)?:20;
-        }
+//        CGFloat safePadding = 0;
+//        if (@available(iOS 11.0, *)) {
+//            UIEdgeInsets safeInsets = [UIApplication sharedApplication].keyWindow.safeAreaInsets;
+//            safePadding = MAX(safeInsets.top, safeInsets.bottom);
+//        }else {
+//            KLAlertPresentingViewController *presentingVc = [[KLAlertSingleton sharedInstance] KLAlertPresentViewController];
+//            safePadding = MAX(presentingVc.topLayoutGuide.length, presentingVc.bottomLayoutGuide.length);
+//        }
+//        if (safePadding == 0) {
+//            safePadding = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame)?:20;
+//        }
         
-        CGFloat newContentMaximumHeight = 0;
-        if (self.contentMaximumHeightInset > 2*safePadding) {
-            newContentMaximumHeight = size.height - self.contentMaximumHeightInset;
-        }else {
-            newContentMaximumHeight = size.height - 2*safePadding;
-        }
+        CGFloat contentMaximumHeight = size.height - self.contentTopAndBottomTotalMargin;
+//        if (self.contentTopAndBottomTotalMargin > 2*safePadding) {
+//            newContentMaximumHeight = size.height - self.contentTopAndBottomTotalMargin;
+//        }else {
+//            newContentMaximumHeight = size.height - 2*safePadding;
+//        }
         
-        [self deviceOrientationWillChangeWithContentMaximumHeight:newContentMaximumHeight duration:context.transitionDuration];
+        [self deviceOrientationWillChangeWithContentMaximumHeight:contentMaximumHeight duration:context.transitionDuration];
     } completion:nil];
 }
 #else
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
                                 duration:(NSTimeInterval)duration {
     
-    KLAlertPresentingViewController *presentingVc = [[KLAlertSingleton sharedInstance] KLAlertPresentViewController];
+//    KLAlertPresentingViewController *presentingVc = [[KLAlertSingleton sharedInstance] KLAlertPresentViewController];
+//
+//    CGFloat safePadding = MAX(presentingVc.topLayoutGuide.length, presentingVc.bottomLayoutGuide.length);
+//    if (safePadding == 0) {
+//        safePadding = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame)?:20;
+//    }
+//
+//    CGFloat newContentMaximumHeight = 0;
+//    if (self.contentTopAndBottomTotalMargin > 2*safePadding) {
+//        newContentMaximumHeight = CGRectGetHeight([UIScreen mainScreen].bounds) - self.contentTopAndBottomTotalMargin;
+//    }else {
+//        newContentMaximumHeight = CGRectGetHeight([UIScreen mainScreen].bounds) - 2*safePadding;
+//    }
     
-    CGFloat safePadding = MAX(presentingVc.topLayoutGuide.length, presentingVc.bottomLayoutGuide.length);
-    if (safePadding == 0) {
-        safePadding = CGRectGetHeight([UIApplication sharedApplication].statusBarFrame)?:20;
-    }
-    
-    CGFloat newContentMaximumHeight = 0;
-    if (self.contentMaximumHeightInset > 2*safePadding) {
-        newContentMaximumHeight = CGRectGetHeight([UIScreen mainScreen].bounds) - self.contentMaximumHeightInset;
-    }else {
-        newContentMaximumHeight = CGRectGetHeight([UIScreen mainScreen].bounds) - 2*safePadding;
-    }
+    CGFloat contentMaximumHeight = CGRectGetHeight([UIScreen mainScreen].bounds) - self.contentTopAndBottomTotalMargin;
     
     [self deviceOrientationWillChangeWithContentMaximumHeight:newContentMaximumHeight duration:duration];
 }
@@ -168,10 +184,6 @@
     self.contentMaximumHeight = CGRectGetHeight([UIScreen mainScreen].bounds)-2*safePadding;
 }
 
-- (void)addContentView:(UIView *)view {
-    self.contentView = view;
-}
-
 #pragma mark - Show
 - (void)kl_show {
     [self kl_showWithAnimated:YES];
@@ -184,6 +196,7 @@
 - (void)kl_showWithAnimated:(BOOL)animated
               completion:(nullable void(^)(void))completionHandler {
     dispatch_main_async_safe(^{
+        
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
         [window endEditing:YES];
         
@@ -205,7 +218,9 @@
 - (void)kl_dismissWithAnimated:(BOOL)animated
                  completion:(nullable void (^)(void))completionHandler {
     dispatch_main_async_safe(^{
+        
         KLAlertPresentingViewController *presentingVc = [[KLAlertSingleton sharedInstance] KLAlertPresentViewController];
+        
         [presentingVc kl_dismissPopUpViewController:self animated:animated completion:^{
             if (completionHandler) {
                 completionHandler();
@@ -234,7 +249,7 @@
 #pragma mark - Setter.
 - (void)setContentMaximumHeight:(CGFloat)contentMaximumHeight {
     _contentMaximumHeight = contentMaximumHeight;
-    _contentMaximumHeightInset =(CGRectGetHeight([UIScreen mainScreen].bounds)-contentMaximumHeight>=0)?:0;
+    self.contentTopAndBottomTotalMargin = MAX(CGRectGetHeight([UIScreen mainScreen].bounds)-contentMaximumHeight, 0);    
 }
 
 - (void)setPresentDelayTimeInterval:(CGFloat)presentDelayTimeInterval {

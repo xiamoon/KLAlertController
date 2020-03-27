@@ -28,12 +28,6 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 
 @interface KLAlertController : KLPopUpViewController
 
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
-- (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil
-                         bundle:(nullable NSBundle *)nibBundleOrNil NS_UNAVAILABLE;
-
-
 + (instancetype)alertControllerWithTitle:(nullable NSString *)title
                                  message:(nullable NSString *)message
                           preferredStyle:(UIAlertControllerStyle)preferredStyle;

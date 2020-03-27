@@ -10,6 +10,31 @@
 #import "KLPopUpViewController.h"
 #import "KLAlertSingleton.h"
 
+@interface KLPopUpControllerModel : NSObject
+@property (nonatomic, strong) KLPopUpViewController *popUpController;
+@property (nonatomic, assign) BOOL animated;
+@property (nonatomic, strong, nullable) void(^completion)(void);
+@end
+
+@implementation KLPopUpControllerModel
+
+- (BOOL)isEqual:(id)object {
+    
+    if (!object || ![object isKindOfClass:[self class]]) {
+        return NO;
+    }
+    
+    if (object == self) {
+        return YES;
+    }
+    
+    KLPopUpControllerModel *popUpModel = (KLPopUpControllerModel *)object;
+    return [popUpModel.popUpController isEqual:self.popUpController];
+}
+
+@end
+
+
 @interface KLAlertPresentingViewController ()
 @property (nonatomic, strong) UIWindow *window;
 
@@ -18,7 +43,6 @@
 @property (atomic, assign) BOOL isDismissing;
 
 @property (nonatomic, strong) NSMutableArray<KLPopUpControllerModel *> *popUpStack;
-
 @end
 
 @implementation KLAlertPresentingViewController
@@ -31,8 +55,7 @@
 #ifdef __IPHONE_13_0
         if (@available(iOS 13, *)) {
             window = [[UIWindow alloc] initWithWindowScene:UIApplication.sharedApplication.keyWindow.windowScene];
-#warning - ???
-//            window.traitCollection.userInterfaceStyle = UIApplication.sharedApplication.keyWindow.traitCollection.userInterfaceStyle;
+            [window setOverrideUserInterfaceStyle:UIApplication.sharedApplication.keyWindow.traitCollection.userInterfaceStyle];
         } else {
             window = [[UIWindow alloc] init];
         }
@@ -132,6 +155,8 @@
     
     if ([viewControllerToDismiss isEqual:self.presentedViewController]) {
         [self _kl_dismissPopUpViewController:viewControllerToDismiss animated:flag completion:completion];
+    } else {
+        if (completion) completion();
     }
 }
 
@@ -182,18 +207,6 @@
     }
 }
 
-- (BOOL)isAnimating {
-    return (self.isPresenting || self.isDismissing);
-}
-
-- (void)clearUpResource {
-    [self.popUpStack removeAllObjects];
-    self.popUpStack = nil;
-    self.window.rootViewController = nil;
-    self.window.hidden = YES;
-    [[KLAlertSingleton sharedInstance] destoryKLAlertSingleton];
-}
-
 #pragma mark - Private.
 // 检查是否还有下一个popUpController可以弹出
 - (void)checkToPresentNextPopUpController {
@@ -205,14 +218,32 @@
     
     KLPopUpControllerModel *lastModel = self.popUpStack.lastObject;
 
-    if (self.presentedViewController) {
+    if (self.presentedViewController) { // 如果当前popUpController已被presented
+        
+        // 如果当前popUpController不是popUpStack中的最后一个，则需要寻找最后一个并弹出
         if ([self.presentedViewController isEqual:lastModel.popUpController] == NO) {
             
-            [self kl_presentPopUpViewController:lastModel.popUpController animated:lastModel.animated completion:lastModel.completion];
+            KLPopUpViewController *presentedViewController = (KLPopUpViewController *)self.presentedViewController;
+            
+            // 如果当前popUpController的优先级小于等于popUpStack中最后一个的优先级
+            if (lastModel.popUpController.showPriority >= presentedViewController.showPriority) {
+                [self kl_presentPopUpViewController:lastModel.popUpController animated:lastModel.animated completion:lastModel.completion];
+
+            } else {
+                // 如果当前popUpController不是popUpStack中的最后一个，但是其优先级却大于popUpStack中最后一个的优先级。
+                // 该情况比较特殊，即当前popUpController在弹出的动画过程中被kl_dismiss了，那么此时，当前popUpController并不在popUpStack中
+                [self kl_dismissPopUpViewController:presentedViewController animated:NO completion:nil];
+            }
+        } else { // 如果当前popUpController就是popUpStack中的最后一个，则没有需要弹出的
+            
         }
-    } else {
+    } else { // 如果当前popUpController已被dismiss
         [self kl_presentPopUpViewController:lastModel.popUpController animated:lastModel.animated completion:lastModel.completion];
     }
+}
+
+- (BOOL)isAnimating {
+    return (self.isPresenting || self.isDismissing);
 }
 
 - (void)removeFromStackWithController:(KLPopUpViewController *)popUpViewController {
@@ -249,6 +280,14 @@
     return model;
 }
 
+- (void)clearUpResource {
+    [self.popUpStack removeAllObjects];
+    self.popUpStack = nil;
+    self.window.rootViewController = nil;
+    self.window.hidden = YES;
+    [[KLAlertSingleton sharedInstance] destoryKLAlertSingleton];
+}
+
 - (void)dealloc {
     _window = nil;
     NSLog(@"KLAlertPresentingViewController dealloc");
@@ -256,25 +295,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-@end
-
-
-@implementation KLPopUpControllerModel
-
-- (BOOL)isEqual:(id)object {
-    
-    if (!object || ![object isKindOfClass:[self class]]) {
-        return NO;
-    }
-    
-    if (object == self) {
-        return YES;
-    }
-    
-    KLPopUpControllerModel *popUpModel = (KLPopUpControllerModel *)object;
-    return [popUpModel.popUpController isEqual:self.popUpController];
 }
 
 @end

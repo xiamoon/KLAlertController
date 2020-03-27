@@ -78,6 +78,7 @@
 - (instancetype)initInternalWithTitle:(NSString *)title
                               message:(NSString *)message
                        preferredStyle:(UIAlertControllerStyle)preferredStyle {
+    
     self = [[[self class] alloc] initInternalWithPreferredStyle:preferredStyle];
     if (self) {
         CGFloat defaultContentWidth = 0;
@@ -99,7 +100,8 @@
 }
 
 - (instancetype)initInternalWithPreferredStyle:(UIAlertControllerStyle)preferredStyle {
-    self = [super init];
+    
+    self = [super initWithContentView:nil preferredStyle:preferredStyle];
     if (self) {
         self.preferredStyle = preferredStyle;
         

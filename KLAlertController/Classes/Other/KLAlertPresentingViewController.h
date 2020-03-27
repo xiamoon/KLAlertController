@@ -23,22 +23,18 @@ NS_ASSUME_NONNULL_BEGIN
                              animated:(BOOL)flag
                            completion:(nullable void(^)(void))completion;
 
+/// 当前屏幕上是否有popUpController存在
 - (BOOL)kl_isAlertControllerCurrentShowed;
 
+/// 通过identifier移除popUpController
 - (void)kl_removeAlertControllerWithIdentifier:(NSString *)identifier
                                      animated:(BOOL)animated
                                 completion:(nullable void (^)(void))completion;
 
+/// 移除所有popUpController
 - (void)kl_removeAllAlertControllerAnimated:(BOOL)animated
                                 completion:(nullable void (^)(void))completion;
 
-@end
-
-
-@interface KLPopUpControllerModel : NSObject
-@property (nonatomic, strong) KLPopUpViewController *popUpController;
-@property (nonatomic, assign) BOOL animated;
-@property (nonatomic, strong, nullable) void(^completion)(void);
 @end
 
 NS_ASSUME_NONNULL_END

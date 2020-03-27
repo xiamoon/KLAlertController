@@ -8,6 +8,7 @@
 
 #import "KLViewController.h"
 #import "KLAlertController.h"
+#import "Masonry.h"
 
 @interface KLViewController ()
 
@@ -22,7 +23,7 @@
 }
 
 - (IBAction)testAlert:(id)sender {
-    [self test2];
+    [self test5];
 }
 
 - (void)test0 {
@@ -30,12 +31,16 @@
     [alert0 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
     [alert0 kl_show];
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         KLAlertController *alert1 = [KLAlertController alertControllerWithTitle:@"你好1" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
         alert1.showPriority = 800;
         [alert1 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
         [alert1 kl_show];
-//    });
+        
+//        [self removeAllKLAlertConrollerAnimated:YES completion:^{
+//            NSLog(@"remove all");
+//        }];
+    });
     
     KLAlertController *alert2 = [KLAlertController alertControllerWithTitle:@"你好2" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
     alert2.showPriority = 600;
@@ -56,10 +61,10 @@
         
         [alert1 kl_dismiss];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
             [alert1 kl_dismiss];
-        });
+//        });
     });
 }
 
@@ -77,13 +82,50 @@
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
-            [alert1 kl_dismiss];
+//            [alert1 kl_dismiss];
+//            [self removeAllKLAlertConrollerAnimated:YES completion:nil];
         });
     });
 }
 
+- (void)test4 {
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor whiteColor];
+    view.frame = CGRectMake(0, 0, 200, 500);
+    
+//    KLAlertController *alert = [KLAlertController alertControllerWithContentView:view preferredStyle:UIAlertControllerStyleAlert];
+//    alert.shouldRespondsMaskViewTouch = YES;
+//    [alert addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+//    [alert kl_show];
+    
+    KLPopUpViewController *popUp = [KLPopUpViewController alertControllerWithContentView:view preferredStyle:UIAlertControllerStyleAlert];
+    popUp.shouldRespondsMaskViewTouch = YES;
+    [popUp kl_show];
+}
 
-
+- (void)test5 {
+    
+    UIView *subView = [[UIView alloc] init];
+    subView.backgroundColor = [UIColor purpleColor];
+    
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor whiteColor];
+    [view addSubview:subView];
+    
+    [subView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(20, 20, 20, 20));
+        make.size.mas_equalTo(CGSizeMake(200, 500));
+    }];
+    
+    KLAlertController *alert = [KLAlertController alertControllerWithContentView:view preferredStyle:UIAlertControllerStyleAlert];
+    alert.shouldRespondsMaskViewTouch = YES;
+    [alert addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+    [alert kl_show];
+    
+//    KLPopUpViewController *popUp = [KLPopUpViewController alertControllerWithContentView:view preferredStyle:UIAlertControllerStyleAlert];
+//    popUp.shouldRespondsMaskViewTouch = YES;
+//    [popUp kl_show];
+}
 
 
 

@@ -30,9 +30,17 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 
 @interface KLPopUpViewController : UIViewController
 
-+ (instancetype)alertControllerWithContentView:(UIView *)view
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil
+                         bundle:(nullable NSBundle *)nibBundleOrNil NS_UNAVAILABLE;
+
+- (instancetype)initWithContentView:(nullable UIView *)contentView
+                     preferredStyle:(UIAlertControllerStyle)preferredStyle;
+
++ (instancetype)alertControllerWithContentView:(nullable UIView *)contentView
                              preferredStyle:(UIAlertControllerStyle)preferredStyle;
-- (void)addContentView:(UIView *)view;
+- (void)addContentView:(UIView *)contentView;
 
 @property (nonatomic, assign) UIAlertControllerStyle preferredStyle;
 @property (nonatomic, strong, readonly) UIView *contentView;
