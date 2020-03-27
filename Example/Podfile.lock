@@ -1,5 +1,5 @@
 PODS:
-  - KLAlertController (0.1.0):
+  - KLAlertController (1.1.0):
     - Masonry
   - Masonry (1.1.0)
 
@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  KLAlertController: d075c383a2699b75328fd52936d3fa7151d3de18
+  KLAlertController: 9dec61e8fd2e79b6b9c85f0e756226eb4f6eb15c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
 
 PODFILE CHECKSUM: b56af964d7e531ba9601f1bce2f1e26a0080a2bc

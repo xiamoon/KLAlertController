@@ -101,6 +101,8 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 @property (nonatomic, assign) CGFloat dismissDelayTimeInterval;
 @property (nonatomic, assign) CGFloat dismissTimeInterval;
 
+/// Dark 和 Light 模式变化时调用
++ (void)traitCollectionDidChange;
 
 #pragma mark - Override
 //! 屏幕方向发生变化时，子类可以重载

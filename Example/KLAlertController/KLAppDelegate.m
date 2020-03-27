@@ -13,12 +13,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-
-    if (@available(iOS 13.0, *)) {
-//        [self.window setOverrideUserInterfaceStyle:UIUserInterfaceStyleLight];
-    } else {
-        // Fallback on earlier versions
-    }
     
     return YES;
 }

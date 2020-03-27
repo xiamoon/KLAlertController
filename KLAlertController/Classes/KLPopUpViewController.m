@@ -136,6 +136,15 @@
     }
 }
 
++ (void)traitCollectionDidChange {
+    KLAlertPresentingViewController *presentingVc = [[KLAlertSingleton sharedInstance] KLAlertPresentViewController];
+    [presentingVc traitCollectionDidChange];
+    
+    if ([presentingVc isKLAlertControllerCurrentShowed] == NO) {
+        [presentingVc kl_removeAllAlertControllerAnimated:NO completion:nil];
+    }
+}
+
 #pragma mark - Show
 - (void)kl_show {
     [self kl_showWithAnimated:YES];

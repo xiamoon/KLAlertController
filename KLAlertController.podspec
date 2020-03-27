@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KLAlertController'
-  s.version          = '1.0.0'
+  s.version          = '1.1.0'
   s.summary          = '一款api跟系统UIAlertController一样的弹出视图，但是提供更多定制化的接口'
 
   s.description      = <<-DESC

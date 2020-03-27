@@ -207,6 +207,12 @@
     }
 }
 
+- (void)traitCollectionDidChange {
+    if (@available(iOS 13, *)) {
+        [_window setOverrideUserInterfaceStyle:UIApplication.sharedApplication.keyWindow.traitCollection.userInterfaceStyle];
+    }
+}
+
 #pragma mark - Private.
 // 检查是否还有下一个popUpController可以弹出
 - (void)checkToPresentNextPopUpController {
