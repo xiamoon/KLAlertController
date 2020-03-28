@@ -12,6 +12,8 @@
 
 @interface KLViewController ()
 @property (nonatomic, assign) NSInteger darkMode;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+
 @end
 
 @implementation KLViewController
@@ -21,10 +23,45 @@
     [super viewDidLoad];
     self.darkMode = 1;
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        
+        UIWindow *keywindow1 = [UIApplication sharedApplication].keyWindow;
+        NSLog(@">>> keywindow1: %@", keywindow1);
+        
+        UIWindow *keywindow2 = self.view.window;
+        NSLog(@">>> keywindow2: %@", keywindow2);
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            UIWindow *keywindow3 = [UIApplication sharedApplication].keyWindow;
+            NSLog(@">>> keywindow3: %@", keywindow3);
+            
+            UIWindow *keywindow4 = self.textField.window;
+            NSLog(@">>> keywindow4: %@", keywindow4);
+        });
+        
+        
+    });
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(testNtf:) name:UIWindowDidBecomeKeyNotification object:nil];
+    
+    
+    
+    if (@available(iOS 12.0, *)) {
+        [KLPopUpViewController appearance].userInterfaceStyle = UIUserInterfaceStyleDark;
+    } else {
+        // Fallback on earlier versions
+    }
+}
+
+- (void)testNtf:(NSNotification *)ntf {
+    NSLog(@"ntf.object: %@", ntf.object);
 }
 
 - (IBAction)testAlert:(id)sender {
-    [self test6];
+    [self test4];
 }
 
 - (void)test0 {
@@ -94,6 +131,10 @@
     view.backgroundColor = [UIColor whiteColor];
     view.frame = CGRectMake(0, 0, 200, 500);
     
+    UITextField *tf = [[UITextField alloc] init];
+    [view addSubview:tf];
+    tf.frame = CGRectMake(20, 20, 100, 40);
+    
 //    KLAlertController *alert = [KLAlertController alertControllerWithContentView:view preferredStyle:UIAlertControllerStyleAlert];
 //    alert.shouldRespondsMaskViewTouch = YES;
 //    [alert addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
@@ -148,20 +189,25 @@
     [alert0 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
     [alert0 kl_show];
     
-    if (@available(iOS 13.0, *)) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [[UIApplication sharedApplication].keyWindow setOverrideUserInterfaceStyle:self.darkMode];
-            [KLPopUpViewController traitCollectionDidChange];
-            
-            self.darkMode ++;
-            if (self.darkMode == 3) {
-                self.darkMode = 1;
-            }
-        });
-    } else {
-        // Fallback on earlier versions
-    }
+//    if (@available(iOS 13.0, *)) {
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [[UIApplication sharedApplication].keyWindow setOverrideUserInterfaceStyle:self.darkMode];
+//            [KLPopUpViewController traitCollectionDidChange];
+//
+//            self.darkMode ++;
+//            if (self.darkMode == 3) {
+//                self.darkMode = 1;
+//            }
+//        });
+//    } else {
+//        // Fallback on earlier versions
+//    }
 }
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    
+}
+
 
 - (IBAction)testSheet:(id)sender {
     KLAlertController *alert = [KLAlertController alertControllerWithTitle:@"你好" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleActionSheet];

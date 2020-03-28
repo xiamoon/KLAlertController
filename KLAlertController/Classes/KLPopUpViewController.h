@@ -73,6 +73,8 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 @property (nonatomic, assign) CGFloat contentMaximumHeightForPortrait;
 @property (nonatomic, assign) CGFloat contentMaximumHeightForLandscape;
 
+- (void)setContentMaximumHeight:(CGFloat)contentMaximumHeight;
+
 //! actionSheet整体内容距离屏幕底部距离，默认为0。注意：刘海屏会自动再加上底部安全区域高度
 @property (nonatomic, assign) CGFloat sheetContentMarginBottom;
 
@@ -101,8 +103,10 @@ NS_CLASS_AVAILABLE_IOS(7_0)
 @property (nonatomic, assign) CGFloat dismissDelayTimeInterval;
 @property (nonatomic, assign) CGFloat dismissTimeInterval;
 
-/// Dark 和 Light 模式变化时调用
-+ (void)traitCollectionDidChange;
+#pragma mark - 暗黑模式适配
++ (void)setUserInterfaceStyle:(UIUserInterfaceStyle)userInterfaceStyle
+                     animated:(BOOL)animated
+                     duration:(CGFloat)duration API_AVAILABLE(ios(13.0));
 
 #pragma mark - Override
 //! 屏幕方向发生变化时，子类可以重载

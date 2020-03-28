@@ -136,9 +136,10 @@
     }
 }
 
-+ (void)traitCollectionDidChange {
++ (void)setUserInterfaceStyle:(UIUserInterfaceStyle)userInterfaceStyle animated:(BOOL)animated duration:(CGFloat)duration {
+    
     KLAlertPresentingViewController *presentingVc = [[KLAlertSingleton sharedInstance] KLAlertPresentViewController];
-    [presentingVc traitCollectionDidChange];
+    [presentingVc setUserInterfaceStyle:userInterfaceStyle animated:animated duration:duration];
     
     if ([presentingVc isKLAlertControllerCurrentShowed] == NO) {
         [presentingVc kl_removeAllAlertControllerAnimated:NO completion:nil];
@@ -208,6 +209,10 @@
 }
 
 #pragma mark - Setter.
+- (void)setContentMaximumHeight:(CGFloat)contentMaximumHeight {
+    self.contentMaximumHeightForLandscape = self.contentMaximumHeightForPortrait = contentMaximumHeight;
+}
+
 - (void)setPresentDelayTimeInterval:(CGFloat)presentDelayTimeInterval {
     _presentDelayTimeInterval = presentDelayTimeInterval;
     self.animation.presentDelayTimeInterval = presentDelayTimeInterval;

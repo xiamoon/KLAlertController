@@ -10,6 +10,8 @@
 #import "KLPopUpViewController.h"
 #import "KLAlertSingleton.h"
 
+NSString * const KLPOPUPCONTROLLER_USERINTERFACESTYPE_KEY = @"com.kl.popUpController.userInterfaceStyle.key";
+
 @interface KLPopUpControllerModel : NSObject
 @property (nonatomic, strong) KLPopUpViewController *popUpController;
 @property (nonatomic, assign) BOOL animated;
@@ -55,7 +57,13 @@
 #ifdef __IPHONE_13_0
         if (@available(iOS 13, *)) {
             window = [[UIWindow alloc] initWithWindowScene:UIApplication.sharedApplication.keyWindow.windowScene];
-            [window setOverrideUserInterfaceStyle:UIApplication.sharedApplication.keyWindow.traitCollection.userInterfaceStyle];
+            
+            NSUserDefaults *userdefaults = [NSUserDefaults standardUserDefaults];
+            
+            NSNumber *userInterfaceStyleNum = [userdefaults valueForKey:KLPOPUPCONTROLLER_USERINTERFACESTYPE_KEY];
+            
+            UIUserInterfaceStyle userInterfaceStyle = userInterfaceStyleNum ? userInterfaceStyleNum.integerValue : UIUserInterfaceStyleUnspecified;
+            [window setOverrideUserInterfaceStyle:userInterfaceStyle];
         } else {
             window = [[UIWindow alloc] init];
         }
@@ -207,21 +215,19 @@
     }
 }
 
-- (void)traitCollectionDidChange {
+- (void)setUserInterfaceStyle:(UIUserInterfaceStyle)userInterfaceStyle animated:(BOOL)animated duration:(CGFloat)duration {
+    
     if (@available(iOS 13, *)) {
-        [_window setOverrideUserInterfaceStyle:UIApplication.sharedApplication.keyWindow.traitCollection.userInterfaceStyle];
+        [_window setOverrideUserInterfaceStyle:userInterfaceStyle];
         
-        // 加上动画
-        [self setupTransition];
+        if (animated) {
+            [self addTransitionForUserInterfaceStyleChangedDuration:duration];
+        }
+        
+        NSUserDefaults *userdefaults = [NSUserDefaults standardUserDefaults];
+        [userdefaults setValue:@(userInterfaceStyle) forKey:KLPOPUPCONTROLLER_USERINTERFACESTYPE_KEY];
+        [userdefaults synchronize];
     }
-}
-
-- (void)setupTransition {
-    CATransition *animation = [CATransition animation];
-    animation.type = kCATransitionFade;
-    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-    animation.duration = 0.4;
-    [_window.layer addAnimation:animation forKey:nil];
 }
 
 #pragma mark - Private.
@@ -295,6 +301,14 @@
     model.animated = animated;
     model.completion = completion;
     return model;
+}
+
+- (void)addTransitionForUserInterfaceStyleChangedDuration:(CGFloat)duration {
+    CATransition *animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    animation.duration = duration;
+    [_window.layer addAnimation:animation forKey:nil];
 }
 
 - (void)clearUpResource {

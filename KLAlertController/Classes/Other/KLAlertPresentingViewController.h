@@ -35,8 +35,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)kl_removeAllAlertControllerAnimated:(BOOL)animated
                                 completion:(nullable void (^)(void))completion;
 
-/// Dark 和 Light 模式切换时调用
-- (void)traitCollectionDidChange;
+/// 设置暗黑模式
+- (void)setUserInterfaceStyle:(UIUserInterfaceStyle)userInterfaceStyle
+                     animated:(BOOL)animated
+                     duration:(CGFloat)duration API_AVAILABLE(ios(13.0));
 
 @end
 
