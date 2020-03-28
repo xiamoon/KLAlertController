@@ -11,7 +11,7 @@
 #import "Masonry.h"
 
 @interface KLViewController ()
-
+@property (nonatomic, assign) NSInteger darkMode;
 @end
 
 @implementation KLViewController
@@ -19,20 +19,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.darkMode = 1;
     // Do any additional setup after loading the view, typically from a nib.
-    
-    if (@available(iOS 13.0, *)) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [[UIApplication sharedApplication].keyWindow setOverrideUserInterfaceStyle:UIUserInterfaceStyleLight];
-            [KLPopUpViewController traitCollectionDidChange];
-        });
-    } else {
-        // Fallback on earlier versions
-    }
 }
 
 - (IBAction)testAlert:(id)sender {
-    [self test1];
+    [self test6];
 }
 
 - (void)test0 {
@@ -151,9 +143,25 @@
     [popUp kl_show];
 }
 
-
-
-
+- (void)test6 {
+    KLAlertController *alert0 = [KLAlertController alertControllerWithTitle:@"你好0" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleAlert];
+    [alert0 addAction:[KLAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+    [alert0 kl_show];
+    
+    if (@available(iOS 13.0, *)) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[UIApplication sharedApplication].keyWindow setOverrideUserInterfaceStyle:self.darkMode];
+            [KLPopUpViewController traitCollectionDidChange];
+            
+            self.darkMode ++;
+            if (self.darkMode == 3) {
+                self.darkMode = 1;
+            }
+        });
+    } else {
+        // Fallback on earlier versions
+    }
+}
 
 - (IBAction)testSheet:(id)sender {
     KLAlertController *alert = [KLAlertController alertControllerWithTitle:@"你好" message:@"这是一条测试信息" preferredStyle:UIAlertControllerStyleActionSheet];

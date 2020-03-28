@@ -210,7 +210,18 @@
 - (void)traitCollectionDidChange {
     if (@available(iOS 13, *)) {
         [_window setOverrideUserInterfaceStyle:UIApplication.sharedApplication.keyWindow.traitCollection.userInterfaceStyle];
+        
+        // 加上动画
+        [self setupTransition];
     }
+}
+
+- (void)setupTransition {
+    CATransition *animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    animation.duration = 0.4;
+    [_window.layer addAnimation:animation forKey:nil];
 }
 
 #pragma mark - Private.
