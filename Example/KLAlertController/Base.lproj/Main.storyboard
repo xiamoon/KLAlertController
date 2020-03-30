@@ -53,42 +53,23 @@
                                     <action selector="systemSheet:" destination="whP-gf-Uak" eventType="touchUpInside" id="6NO-tl-iaz"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9C0-9E-rxY">
-                                <rect key="frame" x="67.5" y="497" width="240" height="128"/>
-                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="4B3-Hj-SXt"/>
-                                    <constraint firstAttribute="height" constant="128" id="fyi-4h-Xwd"/>
-                                </constraints>
-                            </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="11j-t0-fVi">
-                                <rect key="frame" x="140" y="242" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="WgN-LG-PPv" firstAttribute="centerX" secondItem="5Hi-Rr-Atc" secondAttribute="centerX" id="5Nu-JU-x1E"/>
-                            <constraint firstItem="9C0-9E-rxY" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="78r-O1-dp0"/>
                             <constraint firstItem="7eO-4E-Lri" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="TjK-ru-oAQ"/>
                             <constraint firstItem="7eO-4E-Lri" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="44" id="Z1A-Ul-bRy"/>
                             <constraint firstItem="5Hi-Rr-Atc" firstAttribute="top" secondItem="kho-uR-eaA" secondAttribute="bottom" constant="21" id="Zrk-N9-FcW"/>
                             <constraint firstItem="WgN-LG-PPv" firstAttribute="top" secondItem="5Hi-Rr-Atc" secondAttribute="bottom" constant="8" id="bJE-RH-hFE"/>
-                            <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="9C0-9E-rxY" secondAttribute="bottom" constant="42" id="g0j-lq-5Xv"/>
                             <constraint firstItem="5Hi-Rr-Atc" firstAttribute="centerX" secondItem="kho-uR-eaA" secondAttribute="centerX" id="q1L-wC-DcF"/>
                             <constraint firstItem="kho-uR-eaA" firstAttribute="centerX" secondItem="7eO-4E-Lri" secondAttribute="centerX" id="vC2-0v-BIa"/>
                             <constraint firstItem="kho-uR-eaA" firstAttribute="top" secondItem="7eO-4E-Lri" secondAttribute="bottom" constant="24" id="wfq-vG-FB4"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="textField" destination="11j-t0-fVi" id="yTs-Fl-RVg"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-82" y="154"/>
+            <point key="canvasLocation" x="-82.400000000000006" y="152.47376311844079"/>
         </scene>
     </scenes>
 </document>
